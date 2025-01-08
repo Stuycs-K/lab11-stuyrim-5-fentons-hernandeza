@@ -1,8 +1,19 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/KprAwj1n)
 # APCS - Stuyrim
 
-| Ability  | Second Header |
+| Ability  | Cyborg |
 | ------------- | ------------- |
+| Base Health  | 10 ± 2  |
+| Base Special  | Content Cell  |
+| Primary Attack  | Content Cell  |
+| Support Self  | Content Cell  |
+| Special Attack  | Content Cell  |
+| Support Team  | Content Cell  |
+
+| Ability  | Techno Lich (Boss) |
+| ------------- | ------------- |
+| Base Health  | 20 + rng(0-8)  |
+| Base Special  | Content Cell  |
 | Primary Attack  | Content Cell  |
 | Support Self  | Content Cell  |
 | Special Attack  | Content Cell  |
