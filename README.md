@@ -19,30 +19,30 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
-| Ability  | Cyborg |
+| Characteristic  | Cyborg |
 | ------------- | ------------- |
-| Base Health  | 10 ± 2  |
-| Base Special  | Content Cell  |
-| Primary Attack  | Content Cell  |
-| Support Self  | Content Cell  |
-| Special Attack  | Content Cell  |
-| Support Team  | Content Cell  |
+| Base Health  | 8 - 12  |
+| Base Special  | Laser Charge  |
+| Primary Attack  | Bionically enhanced punch: 3 - 5 damage  |
+| Support  | Buffs teams damage by x1.5  |
+| Special Attack  | 9 - 10 damage distribited amonsgt enemies of choice  |
 
 
-| Ability  | Tech Priest |
+| Characteristic  | Tech Priest |
 | ------------- | ------------- |
-| Base Health  | 10 ± 2  |
-| Base Special  | Content Cell  |
-| Primary Attack  | Content Cell  |
-| Support Self  | Content Cell  |
-| Special Attack  | Content Cell  |
-| Support Team  | Content Cell  |
+| Base Health  | 8 - 12  |
+| Base Special  | Mana  |
+| Primary Attack  | Debuff enemies with x2/3 damage for a turn, deaks 1 persistant damage for rest of game  |
+| Support Self  | Heals 4 - 8  |
+| Special Attack  | Makes one enemy sleep for 2 - 4 turns |
+| Support Team  | Heald 3 - 7  |
 
-| Ability  | Techno Lich (Boss) |
+| Characteristic  | Techno Lich (Boss) |
 | ------------- | ------------- |
-| Base Health  | 20 + rng(0-8)  |
-| Base Special  | Content Cell  |
-| Primary Attack  | Content Cell  |
-| Support Self  | Content Cell  |
-| Special Attack  | Content Cell  |
-| Support Team  | Content Cell  |
+| Base Health  | 20 - 28  |
+| Base Special  | Necromancy Points  |
+| Primary Attack  | Laser Burst: 4 - 6 damage, +2 Necromancy Points  |
+| Debuff Action  | Sleep: 1 - 3 turns  |
+| Support Self  | Clears status effects  |
+| Special Attack  | Insta-Kill character under 8 HP, 6 Points req |
+| Comments  | Two actions per turn  |
