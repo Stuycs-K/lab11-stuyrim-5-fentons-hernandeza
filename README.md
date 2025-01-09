@@ -25,7 +25,7 @@ Make a clear list of features that work/dont work
 | Base Special  | Laser Charge  |
 | Primary Attack  | Bionically enhanced punch: 3 - 5 damage  |
 | Support  | Buffs teams damage by x1.5  |
-| Special Attack  | 9 - 10 damage distribited amonsgt enemies of choice  |
+| Special Attack  | 9 - 10 damage distribited amongst enemies of choice  |
 
 
 | Characteristic  | Tech Priest |
@@ -35,7 +35,7 @@ Make a clear list of features that work/dont work
 | Primary Attack  | Debuff enemies with x2/3 damage for a turn, deaks 1 persistant damage for rest of game  |
 | Support Self  | Heals 4 - 8  |
 | Special Attack  | Makes one enemy sleep for 2 - 4 turns |
-| Support Team  | Heald 3 - 7  |
+| Support Team  | Heals 3 - 7  |
 
 | Characteristic  | Techno Lich (Boss) |
 | ------------- | ------------- |
@@ -44,5 +44,5 @@ Make a clear list of features that work/dont work
 | Primary Attack  | Laser Burst: 4 - 6 damage, +2 Necromancy Points  |
 | Debuff Action  | Sleep: 1 - 3 turns  |
 | Support Self  | Clears status effects  |
-| Special Attack  | Insta-Kill character under 8 HP, 6 Points req |
+| Special Attack  | Insta-kill character under 8 HP, 6 Points req |
 | Comments  | Two actions per turn  |
