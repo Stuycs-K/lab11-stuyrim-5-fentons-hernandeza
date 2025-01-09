@@ -43,7 +43,7 @@ Make a clear list of features that work/dont work
 | Base Health  | 20 - 28  |
 | Base Special  | Necromancy Points  |
 | Primary Attack  | Laser Burst: 4 - 6 damage, +2 Necromancy Points  |
-| Special bar passive | | If an enemy dies, necromancy points are instantly filled|
+| Special bar passive | If an enemy dies, necromancy points are instantly filled|
 | Debuff Action  | Sleep: 1 - 3 turns  |
 | Support Self  | Clears status effects  |
 | Special Attack  | Insta-kill character under 8 HP, 6 Points req |
