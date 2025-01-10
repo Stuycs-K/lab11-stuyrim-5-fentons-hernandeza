@@ -18,8 +18,7 @@ public class Game{
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
-    {
-      colorRGB(0,0,139);
+      colorRGB(135,206,235);
       int height = 30;
       int length = 80;
       for (int y = 0; y < height; y++) {
@@ -43,8 +42,9 @@ public class Game{
        //}
       }
     }
-     }
+    Text.reset();
   }
+
 public static boolean startsWithIgnoreCase(String mainString,String stringToCompareTo) {
  return mainString.toLowerCase().startsWith(stringToCompareTo.toLowerCase());
 }
@@ -63,7 +63,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
   *for up to height lines.
   *All remaining locations in the text box should be written with spaces to
   *clear previously written text.
-  *@param row the row to start the top left corner of the text box.
+  *@param row the row to start the top left corner oresetf the text box.
   *@param col the column to start the top left corner of the text box.
   *@param width the number of characters per row
   *@param height the number of rows
@@ -96,7 +96,9 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       //YOUR CODE HERE
-      /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+      /*<<<<<<<<<<<<<<<<<<public static void reset() {
+System.out.print("\u001b[0m");
+}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
 
