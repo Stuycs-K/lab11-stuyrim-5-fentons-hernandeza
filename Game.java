@@ -8,7 +8,9 @@ public class Game{
   public static void main(String[] args) {
     run();
   }
-
+ public static void colorRGB(int r, int g, int b) {
+      System.out.print("\u001b[38;2;"+r+";"+g+";"+b+"m");
+    }
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
