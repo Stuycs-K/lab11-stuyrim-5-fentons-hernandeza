@@ -22,7 +22,7 @@ public class Game{
       for (int x = 0; x < length; x++) {
     //if (x == 1 || y == 1 || y == height - 1 || x == length - 1) {
        if (x == 0 || y == 0 || y == height-1 || x == length - 1) {
-       System.out.print(charachter);
+       System.out.print("-");
 
          }else {
         System.out.print(" ");
@@ -41,7 +41,9 @@ public class Game{
     }
      }
   }
-
+public static boolean startsWithIgnoreCase(String mainString,String stringToCompareTo) {
+ return mainString.toLowerCase().startsWith(stringToCompareTo.toLowerCase());
+}
   //Display a line of text starting at
   //(columns and rows start at 1 (not zero) in the terminal)
   //use this method in your other text drawing methods to make things simpler.
