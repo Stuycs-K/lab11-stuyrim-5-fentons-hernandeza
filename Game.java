@@ -6,7 +6,9 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
-    run();
+    drawBackground();
+    Text.reset();
+    drawText("hey", 10, 10);
   }
  public static void colorRGB(int r, int g, int b) {
       System.out.print("\u001b[38;2;"+r+";"+g+";"+b+"m");
