@@ -9,8 +9,14 @@ public class Game{
     Text.clear();
     drawBackground();
     Text.reset();
-    drawText("hey", 10, 10);
-    Text.go(28, 3);
+<<<<<<< HEAD
+    drawText("heyyyyyyyyyyyyyyyyyyyyyyyyyyy", 10, 10);
+=======
+    System.out.println(colorByPercent(10,100));
+    //drawText("hey", 10, 10);
+    //Text.go(28, 3);
+
+>>>>>>> b8d12efd4c72f05c990aae728e56513a8ead1638
   }
  public static void colorRGB(int r, int g, int b) {
       System.out.print("\u001b[38;2;"+r+";"+g+";"+b+"m");
@@ -68,13 +74,29 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
   *@param width the number of characters per row
   *@param height the number of rows
   */
+<<<<<<< HEAD
   public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
+=======
+ public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
+>>>>>>> 07e95afbdb70e551f6bd04f31c84d574d47941dd
     colorRGB(135,206,235);
     if (currentHeight == height) {
       return;
     }
     if (text.length() > width) {
     drawText(text, row, col);
+<<<<<<< HEAD
+=======
+  }
+  else {
+    drawText(text.substring(0, width - 1),row, col);
+    TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
+  }
+  }
+  public static void TextBox(int row, int col, int width, int height, String text){
+TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
+
+>>>>>>> 07e95afbdb70e551f6bd04f31c84d574d47941dd
   }
   else {
     drawText(text.substring(0, width - 1),row, col);
@@ -114,6 +136,7 @@ System.out.print("\u001b[0m");
 
 
   //Use this to create a colorized number string based on the % compared to the max value.
+  /*
   public static String colorByPercent(int hp, int maxHP){
     String output = String.format("%2s", hp+"")+"/"+String.format("%2s", maxHP+"");
     //COLORIZE THE OUTPUT IF HIGH/LOW:
@@ -121,18 +144,18 @@ System.out.print("\u001b[0m");
     // under 75% : yellow
     // otherwise : white
     if (hp / maxHP < .25){
-      output = Text.colorize(output, Text.Red);
+      output = Text.colorize(output, Text.RED);
     }
     else if (hp / maxHP < .75){
-      output = Text.colorize(output, Text.Yellow);
+      output = Text.colorize(output, Text.YELLOW);
     }
     else {
-      output = Text.colorize(output, Text.White);
+      output = Text.colorize(output, Text.WHITE);
     }
     return output;
   }
 
-
+*/
 
 
 
@@ -259,7 +282,7 @@ System.out.print("\u001b[0m");
 
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
-        //Enemy action choices go here!
+        //Enemy action choices 	 here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
