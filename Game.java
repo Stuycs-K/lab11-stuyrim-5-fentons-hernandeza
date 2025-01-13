@@ -1,4 +1,5 @@
 import java.util.*;
+//useless comment to check buggy commits
 public class Game{
   private static final int WIDTH = 80;
   private static final int HEIGHT = 30;
