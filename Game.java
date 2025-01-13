@@ -48,10 +48,13 @@ public class Game{
       for (int y = 0; y < height; y++) {
       for (int x = 0; x < length; x++) {
     //if (x == 1 || y == 1 || y == height - 1 || x == length - 1) {
-       if (x == 0 || y == 0 || y == height-1 || x == length - 1) {
-       System.out.print("-");
-
-         }else {
+       if (x == 0 || x == length - 1) {
+         System.out.print("┃");
+       }
+       else if (y == 0 || y == height - 1 || y == 4 || y == 24) {
+        System.out.print("━");
+       }
+        else {
         System.out.print(" ");
         }
 
@@ -66,6 +69,22 @@ public class Game{
        //}
       }
     }
+    Text.go(5,0);
+    System.out.print("┣");
+    Text.go(5,80);
+    System.out.print("┫");
+    Text.go(25,0);
+    System.out.print("┣");
+    Text.go(25,80);
+    System.out.print("┫");
+    Text.go(0,0);
+    System.out.print("┏");
+    Text.go(30,0);
+    System.out.print("┗");
+    Text.go(0,80);
+    System.out.print("┓");
+    Text.go(30,80);
+    System.out.print("┛");
     Text.reset();
     Text.go(81,31);
   }
@@ -171,7 +190,6 @@ System.out.print("\u001b[0m");
     }
     return output;
   }
-
 
 
 
@@ -316,7 +334,8 @@ System.out.print("\u001b[0m");
       if(!partyTurn && whichOpponent >= enemies.size()){
         //THIS BLOCK IS TO END THE ENEMY TURN
         //It only triggers after the last enemy goes.
-        whichPlayer = 0;
+        whichPlayer = 0;  //go(32,81);
+
         turn++;
         partyTurn=true;
         //display this prompt before player's turn
