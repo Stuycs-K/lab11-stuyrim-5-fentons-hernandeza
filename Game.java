@@ -10,14 +10,11 @@ public class Game{
     Text.clear();
     drawBackground();
     Text.reset();
-<<<<<<< HEAD
-    drawText("heyyyyyyyyyyyyyyyyyyyyyyyyyyy", 10, 10);
-=======
+        drawText("heyyyyyyyyyyyyyyyyyyyyyyyyyyy", 10, 10);
     System.out.println(colorByPercent(10,100));
     //drawText("hey", 10, 10);
     //Text.go(28, 3);
 
->>>>>>> b8d12efd4c72f05c990aae728e56513a8ead1638
   }
  public static void colorRGB(int r, int g, int b) {
       System.out.print("\u001b[38;2;"+r+";"+g+";"+b+"m");
@@ -65,7 +62,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
-  /*Use this method to place text on the screen at a particular location.
+  /*Use this methoSSd to place text on the screen at a particular location.
   *When the length of the text exceeds width, continue on the next line
   *for up to height lines.
   *All remaining locations in the text box should be written with spaces to
@@ -75,19 +72,14 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
   *@param width the number of characters per row
   *@param height the number of rows
   */
-<<<<<<< HEAD
-  public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
-=======
  public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
->>>>>>> 07e95afbdb70e551f6bd04f31c84d574d47941dd
     colorRGB(135,206,235);
     if (currentHeight == height) {
       return;
     }
     if (text.length() > width) {
     drawText(text, row, col);
-<<<<<<< HEAD
-=======
+
   }
   else {
     drawText(text.substring(0, width - 1),row, col);
@@ -97,7 +89,6 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
   public static void TextBox(int row, int col, int width, int height, String text){
 TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
 
->>>>>>> 07e95afbdb70e551f6bd04f31c84d574d47941dd
   }
   else {
     drawText(text.substring(0, width - 1),row, col);
