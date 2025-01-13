@@ -9,8 +9,10 @@ public class Game{
     Text.clear();
     drawBackground();
     Text.reset();
-    drawText("hey", 10, 10);
-    Text.go(28, 3);
+    System.out.println(colorByPercent(10,100));
+    //drawText("hey", 10, 10);
+    //Text.go(28, 3);
+
   }
  public static void colorRGB(int r, int g, int b) {
       System.out.print("\u001b[38;2;"+r+";"+g+";"+b+"m");
@@ -110,13 +112,13 @@ System.out.print("\u001b[0m");
     // under 75% : yellow
     // otherwise : white
     if (hp / maxHP < .25){
-      output = Text.colorize(output, Text.Red);
+      output = Text.colorize(output, Text.RED);
     }
     else if (hp / maxHP < .75){
-      output = Text.colorize(output, Text.Yellow);
+      output = Text.colorize(output, Text.YELLOW);
     }
     else {
-      output = Text.colorize(output, Text.White);
+      output = Text.colorize(output, Text.WHITE);
     }
     return output;
   }
