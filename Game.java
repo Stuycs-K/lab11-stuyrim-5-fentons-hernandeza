@@ -29,11 +29,12 @@ public class Game{
   public static void main(String[] args) {
     Text.clear();
     drawBackground();
-    Text.reset();
+    System.out.println();
+    /*Text.reset();
         drawText("heyyyyyyyyyyyyyyyyyyyyyyyyyyy", 10, 10);
-    System.out.println(colorByPercent(10,100));
-    //drawText("hey", 10, 10);
-    //Text.go(28, 3);
+    System.out.print(colorByPercent(10,100));
+    drawText("hey", 10, 10);
+    Text.go(3, 80); */
   }
 
  public static void colorRGB(int r, int g, int b) {
@@ -86,7 +87,7 @@ public class Game{
     Text.go(30,80);
     System.out.print("┛");
     Text.reset();
-    Text.go(81,31);
+    Text.go(30,80);
   }
 
 public static boolean startsWithIgnoreCase(String mainString,String stringToCompareTo) {
