@@ -4,6 +4,28 @@ public class Game{
   private static final int HEIGHT = 30;
   private static final int BORDER_COLOR = Text.BLACK;
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
+  private static final String[] fantasyNames = {
+    "Eldrin",
+    "Thalia",
+    "Brom",
+    "Lyra",
+    "Dorian",
+    "Kaelin",
+    "Roderick",
+    "Seraphina",
+    "Gromm",
+    "Elowen",
+    "Talon",
+    "Vespera",
+    "Finnian",
+    "Zara",
+    "Korrin",
+    "Mira",
+    "Jareth",
+    "Selene",
+    "Thorne",
+    "Cassandra"
+};
 
   public static void main(String[] args) {
     Text.clear();
@@ -12,8 +34,8 @@ public class Game{
     System.out.println(colorByPercent(10,100));
     //drawText("hey", 10, 10);
     //Text.go(28, 3);
-
   }
+
  public static void colorRGB(int r, int g, int b) {
       System.out.print("\u001b[38;2;"+r+";"+g+";"+b+"m");
     }
@@ -82,7 +104,14 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      return new CodeWarrior("Bob"+(int)(Math.random()*100));
+      int rand = (int)(Math.random() * 3);
+      int rand2 = (int)(Math.random() * 20);
+      if (rand == 0)
+        return new Cyborg(fantasyNames[rand2]+(8 + (int)(Math.random()*5)));
+      else if (rand == 1)
+        return new TechPriest(fantasyNames[rand2]+(8 + (int)(Math.random()*5)));
+      else
+        return new CodeWarrior(fantasyNames[rand2]+(8 + (int)(Math.random()*5)));
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
