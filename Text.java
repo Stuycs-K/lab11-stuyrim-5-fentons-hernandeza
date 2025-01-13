@@ -45,6 +45,7 @@ public class Text{
   /*Overloaded Colorize methods.
   c1,c2 and c3 are any color modifiers such as bold/color/background color etc.
   */
+
   public static String colorize(String text,int c1){
     return ("\u001b[" + c1 + "m"+text+"\u001b[0m");
   }

@@ -6,9 +6,11 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
+    Text.clear();
     drawBackground();
     Text.reset();
     drawText("hey", 10, 10);
+    Text.go(28, 3);
   }
  public static void colorRGB(int r, int g, int b) {
       System.out.print("\u001b[38;2;"+r+";"+g+";"+b+"m");
@@ -118,6 +120,15 @@ System.out.print("\u001b[0m");
     // under 25% : red
     // under 75% : yellow
     // otherwise : white
+    if (hp / maxHP < .25){
+      output = Text.colorize(output, Text.Red);
+    }
+    else if (hp / maxHP < .75){
+      output = Text.colorize(output, Text.Yellow);
+    }
+    else {
+      output = Text.colorize(output, Text.White);
+    }
     return output;
   }
 
