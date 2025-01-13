@@ -48,10 +48,13 @@ public class Game{
       for (int y = 0; y < height; y++) {
       for (int x = 0; x < length; x++) {
     //if (x == 1 || y == 1 || y == height - 1 || x == length - 1) {
-       if (x == 0 || y == 0 || y == height-1 || x == length - 1) {
-       System.out.print("-");
-
-         }else {
+       if (x == 0 || x == length - 1) {
+         System.out.print("┃");
+       }
+       else if (y == 0 || y == height - 1 || y == 4 || y == 24) {
+        System.out.print("━");
+       }
+        else {
         System.out.print(" ");
         }
 
@@ -66,6 +69,22 @@ public class Game{
        //}
       }
     }
+    Text.go(5,0);
+    System.out.print("┣");
+    Text.go(5,80);
+    System.out.print("┫");
+    Text.go(25,0);
+    System.out.print("┣");
+    Text.go(25,80);
+    System.out.print("┫");
+    Text.go(0,0);
+    System.out.print("┏");
+    Text.go(30,0);
+    System.out.print("┗");
+    Text.go(0,80);
+    System.out.print("┓");
+    Text.go(30,80);
+    System.out.print("┛");
     Text.reset();
   }
 
@@ -105,7 +124,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     drawText(text.substring(0, width - 1),row, col);
     TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
   }
-  go(32,81);
+  //go(32,81);
   }
 
   public static void TextBox(int row, int col, int width, int height, String text){
@@ -169,7 +188,6 @@ System.out.print("\u001b[0m");
     return output;
   }
 
-*/
 
 
 
