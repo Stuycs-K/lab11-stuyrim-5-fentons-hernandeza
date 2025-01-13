@@ -1,5 +1,4 @@
 import java.util.*;
-//useless commits
 public class Game{
   private static final int WIDTH = 80;
   private static final int HEIGHT = 30;
@@ -27,7 +26,6 @@ public class Game{
     "Thorne",
     "Cassandra"
 };
-
   public static void main(String[] args) {
     Text.clear();
     drawBackground();
@@ -107,25 +105,20 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     drawText(text.substring(0, width - 1),row, col);
     TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
   }
+  go(32,81);
   }
+
   public static void TextBox(int row, int col, int width, int height, String text){
 TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
 
   }
-  else {
-    drawText(text.substring(0, width - 1),row, col);
-    TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
-  }
-  }
-  public static void TextBox(int row, int col, int width, int height, String text){
-TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
 
-  }
 
 
 
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
+    /*
     public static Adventurer createRandomAdventurer(){
       int rand = (int)(Math.random() * 3);
       int rand2 = (int)(Math.random() * 20);
@@ -136,7 +129,7 @@ TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0)
       else
         return new CodeWarrior(fantasyNames[rand2]+(8 + (int)(Math.random()*5)));
     }
-
+*/
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
     *Should include Name HP and Special on 3 separate lines.
     *Note there is one blank row reserved for your use if you choose.
@@ -157,7 +150,7 @@ System.out.print("\u001b[0m");
 
 
   //Use this to create a colorized number string based on the % compared to the max value.
-  /*
+
   public static String colorByPercent(int hp, int maxHP){
     String output = String.format("%2s", hp+"")+"/"+String.format("%2s", maxHP+"");
     //COLORIZE THE OUTPUT IF HIGH/LOW:
