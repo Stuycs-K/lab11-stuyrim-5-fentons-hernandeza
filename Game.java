@@ -1,4 +1,5 @@
 import java.util.*;
+//useless commits
 public class Game{
   private static final int WIDTH = 80;
   private static final int HEIGHT = 30;
@@ -31,6 +32,7 @@ public class Game{
     Text.clear();
     drawBackground();
     Text.reset();
+        drawText("heyyyyyyyyyyyyyyyyyyyyyyyyyyy", 10, 10);
     System.out.println(colorByPercent(10,100));
     //drawText("hey", 10, 10);
     //Text.go(28, 3);
@@ -82,7 +84,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
-  /*Use this method to place text on the screen at a particular location.
+  /*Use this methoSSd to place text on the screen at a particular location.
   *When the length of the text exceeds width, continue on the next line
   *for up to height lines.
   *All remaining locations in the text box should be written with spaces to
@@ -92,12 +94,33 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
   *@param width the number of characters per row
   *@param height the number of rows
   */
-  public static void TextBox(int row, int col, int width, int height, String text){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-  }
+ public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
+    colorRGB(135,206,235);
+    if (currentHeight == height) {
+      return;
+    }
+    if (text.length() > width) {
+    drawText(text, row, col);
 
+  }
+  else {
+    drawText(text.substring(0, width - 1),row, col);
+    TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
+  }
+  }
+  public static void TextBox(int row, int col, int width, int height, String text){
+TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
+
+  }
+  else {
+    drawText(text.substring(0, width - 1),row, col);
+    TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
+  }
+  }
+  public static void TextBox(int row, int col, int width, int height, String text){
+TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
+
+  }
 
 
 
@@ -134,6 +157,7 @@ System.out.print("\u001b[0m");
 
 
   //Use this to create a colorized number string based on the % compared to the max value.
+  /*
   public static String colorByPercent(int hp, int maxHP){
     String output = String.format("%2s", hp+"")+"/"+String.format("%2s", maxHP+"");
     //COLORIZE THE OUTPUT IF HIGH/LOW:
@@ -152,7 +176,7 @@ System.out.print("\u001b[0m");
     return output;
   }
 
-
+*/
 
 
 
@@ -279,7 +303,7 @@ System.out.print("\u001b[0m");
 
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
-        //Enemy action choices go here!
+        //Enemy action choices 	 here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
