@@ -9,8 +9,7 @@ public class Game{
     Text.clear();
     drawBackground();
     Text.reset();
-    drawText("hey", 10, 10);
-    Text.go(28, 3);
+    drawText("heyyyyyyyyyyyyyyyyyyyyyyyyyyy", 10, 10);
   }
  public static void colorRGB(int r, int g, int b) {
       System.out.print("\u001b[38;2;"+r+";"+g+";"+b+"m");
@@ -68,10 +67,22 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
   *@param width the number of characters per row
   *@param height the number of rows
   */
+ public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
+    colorRGB(135,206,235);
+    if (currentHeight == height) {
+      return;
+    }
+    if (text.length() > width) {
+    drawText(text, row, col);
+  }
+  else {
+    drawText(text.substring(0, width - 1),row, col);
+    TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
+  }
+  }
   public static void TextBox(int row, int col, int width, int height, String text){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
+
   }
 
 
@@ -103,6 +114,7 @@ System.out.print("\u001b[0m");
 
 
   //Use this to create a colorized number string based on the % compared to the max value.
+  /*
   public static String colorByPercent(int hp, int maxHP){
     String output = String.format("%2s", hp+"")+"/"+String.format("%2s", maxHP+"");
     //COLORIZE THE OUTPUT IF HIGH/LOW:
@@ -121,7 +133,7 @@ System.out.print("\u001b[0m");
     return output;
   }
 
-
+*/
 
 
 
@@ -248,7 +260,7 @@ System.out.print("\u001b[0m");
 
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
-        //Enemy action choices go here!
+        //Enemy action choices 	 here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
