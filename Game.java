@@ -75,13 +75,29 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
   *@param width the number of characters per row
   *@param height the number of rows
   */
+<<<<<<< HEAD
+  public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
+=======
  public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
+>>>>>>> 07e95afbdb70e551f6bd04f31c84d574d47941dd
     colorRGB(135,206,235);
     if (currentHeight == height) {
       return;
     }
     if (text.length() > width) {
     drawText(text, row, col);
+<<<<<<< HEAD
+=======
+  }
+  else {
+    drawText(text.substring(0, width - 1),row, col);
+    TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
+  }
+  }
+  public static void TextBox(int row, int col, int width, int height, String text){
+TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
+
+>>>>>>> 07e95afbdb70e551f6bd04f31c84d574d47941dd
   }
   else {
     drawText(text.substring(0, width - 1),row, col);
@@ -92,7 +108,6 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
 
   }
-
 
 
 
