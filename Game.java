@@ -67,6 +67,7 @@ public class Game{
       }
     }
     Text.reset();
+    Text.go(81,31);
   }
 
 public static boolean startsWithIgnoreCase(String mainString,String stringToCompareTo) {
@@ -82,7 +83,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
-  /*Use this methoSSd to place text on the screen at a particular location.
+  /*Use this method to place text on the screen at a particular location.
   *When the length of the text exceeds width, continue on the next line
   *for up to height lines.
   *All remaining locations in the text box should be written with spaces to
@@ -105,11 +106,13 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     drawText(text.substring(0, width - 1),row, col);
     TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
   }
-  go(32,81);
   }
 
   public static void TextBox(int row, int col, int width, int height, String text){
 TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
+Text.reset();
+Text.go(81,31);
+
 
   }
 
@@ -169,7 +172,7 @@ System.out.print("\u001b[0m");
     return output;
   }
 
-*/
+
 
 
 
