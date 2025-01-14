@@ -155,6 +155,10 @@ Text.go(81,31);
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
+      if (party.size() == 1){
+        Text.go(startRow, 34);
+        System.out.print(party.get(0));
+      }
       if (party.size() == 2){
         Text.go(startRow, 2); // need textbox working for this
         System.out.print(party.get(0));
@@ -271,6 +275,7 @@ Text.go(81,31);
         System.out.print("┷");
       }
     }
+    drawParty(enemies, 2);
     drawParty(party, 27);
 
     Text.reset();
