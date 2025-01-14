@@ -38,7 +38,6 @@ public class Game{
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
-      colorRGB(135,206,235);
       int height = 30;
       int length = 80;
       for (int y = 0; y < height; y++) {
@@ -81,8 +80,6 @@ public class Game{
     System.out.print("┓");
     Text.go(30,80);
     System.out.print("┛");
-    Text.reset();
-    Text.go(30,80);
   }
 
 public static boolean startsWithIgnoreCase(String mainString,String stringToCompareTo) {
@@ -188,16 +185,72 @@ Text.go(81,31);
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
   public static void drawScreen(ArrayList<Adventurer> enemies, ArrayList<Adventurer> party){
+    colorRGB(135,206,235);
     drawBackground();
 
+    //draw enemy party
+    colorRGB(135,206,235);
+    if (enemies.size() == 2){
+      Text.go(0, 40);
+      System.out.print("┯");
+      for (int i = 2; i < 5; i++){
+        Text.go(i, 40);
+        System.out.print("│");
+      }
+      Text.go(5, 40);
+      System.out.print("┷");
+    }
+    if (enemies.size() == 3){
+      for (int x = 26; x < 80; x += 28){
+        Text.go(0, x);
+        System.out.print("┯");
+        for (int i = 2; i < 5; i++){
+          Text.go(i, x);
+          System.out.print("│");
+        }
+        Text.go(5, x);
+        System.out.print("┷");
+      }
+    }
     //draw player party
     if (party.size() == 2){
-      Text.go(15, 0);
+      Text.go(26, 40);
       System.out.print("┯");
-
+      for (int i = 1; i < 4; i++){
+        Text.go(26 + i, 40);
+        System.out.print("│");
+      }
+      Text.go(30, 40);
+      System.out.print("┷");
     }
-    //draw enemy party
+    if (party.size() == 3){
+      for (int x = 26; x < 80; x += 28){
+        Text.go(26, x);
+        System.out.print("┯");
+        for (int i = 1; i < 4; i++){
+          Text.go(26 + i, x);
+          System.out.print("│");
+        }
+        Text.go(30, x);
+        System.out.print("┷");
+      }
+    }
+    if (party.size() == 4){
+      for (int x = 20; x < 80; x += 20){
+        Text.go(26, x);
+        System.out.print("┯");
+        for (int i = 1; i < 4; i++){
+          Text.go(26 + i, x);
+          System.out.print("│");
+        }
+        Text.go(30, x);
+        System.out.print("┷");
+      }
+    }
 
+    Text.reset();
+    Text.go(30,0);
+    System.out.println();
   }
 
   public static String userInput(Scanner in){
@@ -270,8 +323,7 @@ Text.go(81,31);
     //Draw the window border
 
     //You can add parameters to draw screen!
-    System.out.println(party.size());
-    //drawScreen(enemies, party);//initial state.
+    drawScreen(enemies, party);//initial state.
 
     //Main loop
     /*
@@ -290,24 +342,12 @@ Text.go(81,31);
 
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
-<<<<<<< HEAD
-       
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-=======
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
->>>>>>> a33288745d77f51acb1e2fc43d294947d0e6abc6
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
         }
-<<<<<<< HEAD
-        else if((input.equals("special") || input.equals("sp")) && isinstance(defaultCyborgForComparision, party.get(whichPlayer)){
-        //put the infrastructure to get new userInput and call the cyborg special attack three times, because it only functions once
-        party.get(whichPlayer).setHP(party.get(whichPlayer).getHP() + 1);
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-=======
         else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
->>>>>>> a33288745d77f51acb1e2fc43d294947d0e6abc6
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
         }
@@ -315,10 +355,10 @@ Text.go(81,31);
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }
+        //}
         
         
-        else if(input.startsWith("su ") || input.startsWith("support ")){
+        //else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
