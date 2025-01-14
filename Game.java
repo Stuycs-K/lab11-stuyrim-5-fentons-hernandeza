@@ -108,6 +108,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
  public static void TextBox(int row, int col, int width, int height, String text){
   TextBox(row, col, width, height, text, 1);
  }
+
  public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
     Text.go(row, col);
     if (currentHeight > height){
@@ -150,32 +151,47 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
       if (party.size() == 1){
-        Text.go(startRow, 34);
-        System.out.print(party.get(0));
+        TextBox(startRow, 34, 38, 1, party.get(0).getName());
+        TextBox(startRow+1, 37, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
+        TextBox(startRow+2, 38, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
       }
       if (party.size() == 2){
-        Text.go(startRow, 2); // need textbox working for this
-        System.out.print(party.get(0));
-        Text.go(startRow, 41);
-        System.out.print(party.get(1));
+        int k = 0;
+        for (int i = 2; i < 50; i += 39){
+          TextBox(startRow, i, 38, 1, party.get(k).getName());
+          TextBox(startRow+1, i, 38, 1, party.get(k).getHP() + "/" + party.get(k).getmaxHP());
+          TextBox(startRow+2, i, 38, 1, party.get(k).getSpecial() + "/" + party.get(k).getSpecialMax());
+          k++;
+        }
       }
       if (party.size() == 3){
-        Text.go(startRow, 2);
-        System.out.print(party.get(0));
-        Text.go(startRow, 27);
-        System.out.print(party.get(1));
-        Text.go(startRow, 55);
-        System.out.print(party.get(2));
+        TextBox(startRow, 2, 38, 1, party.get(0).getName());
+        TextBox(startRow+1, 2, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
+        TextBox(startRow+2, 2, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
+
+        TextBox(startRow, 27, 38, 1, party.get(1).getName());
+        TextBox(startRow+1, 27, 38, 1, party.get(1).getHP() + "/" + party.get(1).getmaxHP());
+        TextBox(startRow+2, 27, 38, 1, party.get(1).getSpecial() + "/" + party.get(1).getSpecialMax());
+
+        TextBox(startRow, 55, 38, 1, party.get(2).getName());
+        TextBox(startRow+1, 55, 38, 1, party.get(2).getHP() + "/" + party.get(2).getmaxHP());
+        TextBox(startRow+2, 55, 38, 1, party.get(2).getSpecial() + "/" + party.get(2).getSpecialMax());
       }
       if (party.size() == 4){
-        Text.go(startRow, 2);
-        System.out.print(party.get(0));
-        Text.go(startRow, 21);
-        System.out.print(party.get(1));
-        Text.go(startRow, 41);
-        System.out.print(party.get(2));
-        Text.go(startRow, 61);
-        System.out.print(party.get(3));
+        int k = 0;
+        for (int i = 2; i < 40; i += 19){
+          TextBox(startRow, i, 38, 1, party.get(k).getName());
+          TextBox(startRow+1, i, 38, 1, party.get(k).getHP() + "/" + party.get(k).getmaxHP());
+          TextBox(startRow+2, i, 38, 1, party.get(k).getSpecial() + "/" + party.get(k).getSpecialMax());
+          k++;
+        }
+        TextBox(startRow, 41, 38, 1, party.get(2).getName());
+        TextBox(startRow+1, 41, 38, 1, party.get(2).getHP() + "/" + party.get(2).getmaxHP());
+        TextBox(startRow+2, 41, 38, 1, party.get(2).getSpecial() + "/" + party.get(2).getSpecialMax());
+
+        TextBox(startRow, 61, 38, 1, party.get(3).getName());
+        TextBox(startRow+1, 61, 38, 1, party.get(3).getHP() + "/" + party.get(3).getmaxHP());
+        TextBox(startRow+2, 61, 38, 1, party.get(3).getSpecial() + "/" + party.get(3).getSpecialMax());
       }
     }
 
