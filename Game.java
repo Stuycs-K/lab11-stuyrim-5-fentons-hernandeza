@@ -30,7 +30,11 @@ public class Game{
 
   public static void main(String[] args) {
     drawBackground();
-    TextBox(3, 4, 2, 3, "AADGHUIA", 1);
+    try{
+    TextBox(3, 4, 2, 5, "AAADGAAAAAAAaHUIA");
+    }catch(Exception e){
+      System.out.print(e);
+    }
     //run();
   }
 
@@ -120,7 +124,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
       TextBox(row + 1, col, width, height, text.substring(width), 2);
     }
     else{
-      System.out.print(text.substring(0, width));
+      System.out.print(text);
     }
   }
 
