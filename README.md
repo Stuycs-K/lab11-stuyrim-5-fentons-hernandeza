@@ -19,6 +19,13 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
+| Characteristic  | CodeWarrior |
+| ------------- | ------------- |
+|Only one major change|
+| Base Health  | 10 - 14  |
+
+
+
 | Characteristic  | Cyborg |
 | ------------- | ------------- |
 | Base Health  | 8 - 12  |
