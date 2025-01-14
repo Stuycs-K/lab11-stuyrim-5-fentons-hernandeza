@@ -113,8 +113,8 @@ public abstract class Adventurer{
   }
 
   public void setAttackTick(int newAttackTicker) {
-  this.attackTicker = newAttackTicker;
-  this.attackMultiplier = (1 + (1 / 2) * getAttackTick());
+    this.attackTicker = newAttackTicker;
+    this.attackMultiplier = (1 + (1 / 2) * getAttackTick());
   }
 
 

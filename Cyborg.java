@@ -56,7 +56,7 @@ public class Cyborg extends Adventurer{
       setSpecial(getSpecial()-8);
       int damage = (int)((Math.random()*5+Math.random()*5)+3) * getAttackMultiplier();
       other.applyDamage(damage);
-      return this + " used their "+preferredLanguage+
+      return this + " used their "+elimQuote+
       " skills to hack the matrix. "+
       " This glitched out "+other+" dealing "+ damage +" points of damage.";
     }else{
@@ -66,8 +66,8 @@ public class Cyborg extends Adventurer{
   }
   /*Restores 5 special to other*/
   public String support(Adventurer other){
-    return "Kill them for me "+other+" and buffs his attack substantially "
-    setAttackTicker(getAttackTick() + 1);
+    setAttackTick(getAttackTick() + 1);
+    return "Kill them for me "+other+" and buffs his attack substantially ";
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
