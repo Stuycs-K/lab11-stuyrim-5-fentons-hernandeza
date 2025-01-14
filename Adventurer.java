@@ -1,7 +1,8 @@
 import java.util.Random;
 public abstract class Adventurer{
   private String name;
-  private int HP,maxHP;
+  private int HP,maxHP,attackTicker, attackMultiplier;
+  private boolean dead;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -69,6 +70,9 @@ public abstract class Adventurer{
     this.name = name;
     this.HP = hp;
     this.maxHP = hp;
+    this.attackTicker = 0;
+    this.attackMultiplier = (1 + (1 / 2) * getAttackTick());
+    this.dead = false;
   }
 
   //toString method
@@ -80,6 +84,15 @@ public abstract class Adventurer{
   public String getName(){
     return name;
   }
+  
+  public int getAttackTick() {
+  return attackTicker;
+  }
+  
+  public int getAttackMultiplier() {
+  return attackMultiplier;
+  }
+
 
   public int getHP(){
     return HP;
@@ -92,10 +105,18 @@ public abstract class Adventurer{
     maxHP = newMax;
   }
 
+
+
   //Set Methods
   public void setHP(int health){
     this.HP = health;
   }
+
+  public void setAttackTick(int newAttackTicker) {
+  this.attackTicker = newAttackTicker;
+  this.attackMultiplier = (1 + (1 / 2) * getAttackTick());
+  }
+
 
   public void setName(String s){
     this.name = s;
