@@ -39,23 +39,31 @@ public class Cyborg extends Adventurer{
     return maxCharge;
   }
 
+
+
   public String attack(Adventurer other){
     setHP(getHP() + 2);
     int damage = (int)((Math.random()*3) + 3);
     other.applyDamage(damage);
+    killIfNecessary();
     restoreSpecial(2);
+    if (other.dead() == true) {
+      return this + " heard punched " + other + " killing them and saying " + elimQuote;
+    }
     return this + " hard punched "+ other + " and dealt "+ damage +
     " points of damage. They then clank their gauntlets together.";
   }
-
-+ " used their laser barrage dealing " + damage + " points of damage and singeing their enemies"
 
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
       int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
       other.applyDamage(damage);
-
+      killIfNecessary();
+      //figure out how to trigger this multiple times while checking the condition once
+      if (other.dead() == true) {
+        return this + " heard punched " + other + " killing them and saying " + elimQuote;
+      }
       return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
 
     }else{

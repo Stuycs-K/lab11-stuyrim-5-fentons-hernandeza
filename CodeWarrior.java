@@ -1,22 +1,23 @@
 public class CodeWarrior extends Adventurer{
   int caffeine, caffeineMax;
-  String preferredLanguage;
+  String preferredLanguage,elimQuote;
 
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
-  public CodeWarrior(String name, int hp, String language){
+  public CodeWarrior(String name, int hp, String language, String elimQuote){
     super(name,hp);
     caffeineMax = 12;
     caffeine = caffeineMax/2;
     preferredLanguage = language;
+    elimQuote = elimQuote;
   }
 
   public CodeWarrior(String name, int hp){
-    this(name,hp,"c++");
+    this(name,hp,"c++", "The power of c++ compels you to leave the server of life.");
   }
 
   public CodeWarrior(String name){
-    this(name,24);
+    this(name,10 + (int) (Math.random() * 5));
   }
 
   public CodeWarrior(){
@@ -44,6 +45,7 @@ public class CodeWarrior extends Adventurer{
   public String attack(Adventurer other){
     int damage = (int)(Math.random()*6)+2;
     other.applyDamage(damage);
+    killIfNecessary();
     restoreSpecial(2);
     return this + " attacked "+ other + " and dealt "+ damage +
     " points of damage. They then take a sip of their coffee.";
@@ -57,6 +59,7 @@ public class CodeWarrior extends Adventurer{
       setSpecial(getSpecial()-8);
       int damage = (int)(Math.random()*5+Math.random()*5)+3;
       other.applyDamage(damage);
+      killIfNecessary();
       return this + " used their "+preferredLanguage+
       " skills to hack the matrix. "+
       " This glitched out "+other+" dealing "+ damage +" points of damage.";
