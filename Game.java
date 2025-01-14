@@ -26,15 +26,10 @@ public class Game{
     "Thorne",
     "Cassandra"
 };
+
+
   public static void main(String[] args) {
-    Text.clear();
-    drawBackground();
-    System.out.println();
-    /*Text.reset();
-        drawText("heyyyyyyyyyyyyyyyyyyyyyyyyyyy", 10, 10);
-    System.out.print(colorByPercent(10,100));
-    drawText("hey", 10, 10);
-    Text.go(3, 80); */
+    run();
   }
 
  public static void colorRGB(int r, int g, int b) {
@@ -52,7 +47,7 @@ public class Game{
        if (x == 0 || x == length - 1) {
          System.out.print("┃");
        }
-       else if (y == 0 || y == height - 1 || y == 4 || y == 24) {
+       else if (y == 0 || y == height - 1 || y == 4 || y == 25) {
         System.out.print("━");
        }
         else {
@@ -74,9 +69,9 @@ public class Game{
     System.out.print("┣");
     Text.go(5,80);
     System.out.print("┫");
-    Text.go(25,0);
+    Text.go(26,0);
     System.out.print("┣");
-    Text.go(25,80);
+    Text.go(26,80);
     System.out.print("┫");
     Text.go(0,0);
     System.out.print("┏");
@@ -141,18 +136,18 @@ Text.go(81,31);
 
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
-    /*
+    
     public static Adventurer createRandomAdventurer(){
       int rand = (int)(Math.random() * 3);
       int rand2 = (int)(Math.random() * 20);
       if (rand == 0)
-        return new Cyborg(fantasyNames[rand2]+(8 + (int)(Math.random()*5)));
+        return new Cyborg(fantasyNames[rand2], (8 + (int)(Math.random()*5)));
       else if (rand == 1)
-        return new TechPriest(fantasyNames[rand2]+(8 + (int)(Math.random()*5)));
+        return new TechPriest(fantasyNames[rand2], (8 + (int)(Math.random()*5)));
       else
-        return new CodeWarrior(fantasyNames[rand2]+(8 + (int)(Math.random()*5)));
+        return new CodeWarrior(fantasyNames[rand2], (8 + (int)(Math.random()*5)));
     }
-*/
+
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
     *Should include Name HP and Special on 3 separate lines.
     *Note there is one blank row reserved for your use if you choose.
@@ -163,12 +158,6 @@ Text.go(81,31);
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
-
-      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
-      /*<<<<<<<<<<<<<<<<<<public static void reset() {
-System.out.print("\u001b[0m");
-}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
 
@@ -198,12 +187,15 @@ System.out.print("\u001b[0m");
   //Display the party and enemies
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
-  public static void drawScreen(){
-
+  public static void drawScreen(ArrayList<Adventurer> enemies, ArrayList<Adventurer> party){
     drawBackground();
 
     //draw player party
+    if (party.size() == 2){
+      Text.go(15, 0);
+      System.out.print("┯");
 
+    }
     //draw enemy party
 
   }
@@ -227,7 +219,6 @@ System.out.print("\u001b[0m");
   }
 
   public static void run(){
-    //Clear and initialize
     Text.hideCursor();
     Text.clear();
 
@@ -238,14 +229,35 @@ System.out.print("\u001b[0m");
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    int rand = (int) (Math.random() * 3);
+    if (rand == 0){
+      enemies.add(new Boss("The Lich King", 20 + (int)(Math.random() * 9)));
+    }
+    else if (rand == 1){
+      enemies.add(createRandomAdventurer());
+      enemies.add(createRandomAdventurer());
+    }
+    else{
+      enemies.add(createRandomAdventurer());
+      enemies.add(createRandomAdventurer());
+      enemies.add(createRandomAdventurer());
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    int rand3 = (int) Math.random() * 3;
+    if (rand == 0){
+      party.add(createRandomAdventurer());
+    }
+    if (rand == 1){
+      party.add(createRandomAdventurer());
+      party.add(createRandomAdventurer());
+    }
+    party.add(createRandomAdventurer());
+    party.add(createRandomAdventurer());
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     boolean partyTurn = true;
@@ -258,10 +270,11 @@ System.out.print("\u001b[0m");
     //Draw the window border
 
     //You can add parameters to draw screen!
-    drawScreen();//initial state.
+    System.out.println(party.size());
+    //drawScreen(enemies, party);//initial state.
 
     //Main loop
-
+    /*
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
 
@@ -277,17 +290,26 @@ System.out.print("\u001b[0m");
 
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
+<<<<<<< HEAD
        
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+=======
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
+>>>>>>> a33288745d77f51acb1e2fc43d294947d0e6abc6
           //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
         }
+<<<<<<< HEAD
         else if((input.equals("special") || input.equals("sp")) && isinstance(defaultCyborgForComparision, party.get(whichPlayer)){
         //put the infrastructure to get new userInput and call the cyborg special attack three times, because it only functions once
         party.get(whichPlayer).setHP(party.get(whichPlayer).getHP() + 1);
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+=======
+        else if(input.equals("special") || input.equals("sp")){
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
+>>>>>>> a33288745d77f51acb1e2fc43d294947d0e6abc6
           //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
         }
         else if((input.equals("special") || input.equals("sp"))){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -299,9 +321,9 @@ System.out.print("\u001b[0m");
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
           //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
         }
 
         //You should decide when you want to re-ask for user input
@@ -330,9 +352,9 @@ System.out.print("\u001b[0m");
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices 	 here!
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
         //YOUR CODE HERE
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
 
 
         //Decide where to draw the following prompt:
@@ -357,11 +379,11 @@ System.out.print("\u001b[0m");
       //display the updated screen after input has been processed.
       drawScreen();
 
-
     }//end of main game loop
 
 
     //After quit reset things:
     quit();
+ */
   }
 }

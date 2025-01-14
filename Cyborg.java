@@ -55,11 +55,11 @@ public class Cyborg extends Adventurer{
       setSpecial(getSpecial()-8);
       int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
       other.applyDamage(damage);
+
       return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
 
-
     }else{
-      return "Not enough caffeine to use the ultimate code. Instead "+attack(other);
+      return "Not enough energy to use the ultimate code. Instead "+attack(other);
     }
 
   }
@@ -67,15 +67,17 @@ public class Cyborg extends Adventurer{
 
   /*Restores 5 special to other*/
   public String support(Adventurer other){
+
     setHP(getHP() + 2));
     return getName() + " says kill them for me "+other+" and buffs his attack substantially "
     other.setAttackTicker(getAttackTick() + 1);
+
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
     setHP(getHP() + 2));
     setAttackTicker(getAttackTick() + 1)
-    return getName() +" says fine I'll do it myself and significantly boosts his own attack power.";
+    return getName() +" says fine I'll do it myself and significantly boosts their own attack power.";
   }
 
 
