@@ -28,23 +28,23 @@ public class TechPriest extends Adventurer{
   }
 
   public int getSpecial(){
-    return charge;
+    return caffeine;
   }
 
   public void setSpecial(int n){
-    charge = n;
+    caffeine = n;
   }
 
   public int getSpecialMax(){
-    return maxCharge;
+    return caffeineMax;
   }
 
-  public String attack(Adventurer other){
+public String attack(Adventurer other){
     setHP(getHP() + 2);
     int damage = (int)((Math.random()*3) + 3);
     other.applyDamage(damage);
     restoreSpecial(2);
-    return this + " hard punched "+ other + " and dealt "+ damage +
+    return this + " hard punched "+ other + " and dealt "+ damage + // IMPORTANT THIS IS CYBORG CODE FIX LATER
     " points of damage. They then clank their gauntlets together.";
   }
 
@@ -56,21 +56,23 @@ public class TechPriest extends Adventurer{
       int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
       other.applyDamage(damage);
 
-      return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
+      return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies"; //SAME FOR THIS
 
     }else{
       return "Not enough energy to use the ultimate code. Instead "+attack(other);
     }
 
   }
-
-
-  /*Restores 5 special to other*/
+  
   public String support(Adventurer other){
-
     setHP(getHP() + 2);
     other.setAttackTick(getAttackTick() + 1);
     return getName() + " says kill them for me "+other+" and buffs his attack substantially ";
   }
-
+  /*Restores 6 special and 1 hp to self.*/
+  public String support(){
+    setHP(getHP() + 2);
+    setAttackTick(getAttackTick() + 1);
+    return getName() +" says fine I'll do it myself and significantly boosts their own attack power.";
+  }
 }
