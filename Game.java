@@ -29,7 +29,9 @@ public class Game{
 
 
   public static void main(String[] args) {
-    run();
+    drawBackground();
+    TextBox(3, 4, 2, 3, "AADGHUIA", 1);
+    //run();
   }
 
  public static void colorRGB(int r, int g, int b) {
@@ -105,27 +107,21 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
   *@param width the number of characters per row
   *@param height the number of rows
   */
+ public static void TextBox(int row, int col, int width, int height, String text){
+  TextBox(row, col, width, height, text, 1);
+ }
  public static void TextBox(int row, int col, int width, int height, String text, int currentHeight){
-    colorRGB(135,206,235);
-    if (currentHeight == height) {
-      return;
+    Text.go(row, col);
+    if (currentHeight > height){
+      throw new StringIndexOutOfBoundsException("String too long to fit in textbox");
     }
-    if (text.length() > width) {
-    drawText(text, row, col);
-
-  }
-  else {
-    drawText(text.substring(0, width - 1),row, col);
-    TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),currentHeight++);
-  }
-  }
-
-  public static void TextBox(int row, int col, int width, int height, String text){
-TextBox(row + 1, col, width, height, text.substring(width - 1, text.length()),0);
-Text.reset();
-Text.go(81,31);
-
-
+    if (text.length() > width){
+      System.out.print(text.substring(0, width));
+      TextBox(row + 1, col, width, height, text.substring(width), 2);
+    }
+    else{
+      System.out.print(text.substring(0, width));
+    }
   }
 
 
@@ -275,10 +271,10 @@ Text.go(81,31);
         System.out.print("┷");
       }
     }
+    Text.reset();
     drawParty(enemies, 2);
     drawParty(party, 27);
 
-    Text.reset();
     Text.go(30,0);
     System.out.println();
   }
