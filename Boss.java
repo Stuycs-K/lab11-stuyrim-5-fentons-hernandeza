@@ -6,8 +6,8 @@ public class Boss extends Adventurer{
 
  public Boss(String name, int hp, String elimQuote){
     super(name,hp);
-    maxCharge = 8;
-    charge = maxCharge/2;
+    maxNecromagic = 8;
+    necropoints = maxNecromagic/2;
     elimQuote = elimQuote;
   }
 
@@ -25,19 +25,19 @@ public class Boss extends Adventurer{
 
   /*The next 8 methods are all required because they are abstract:*/
   public String getSpecialName(){
-    return "charge";
+    return "necropoints";
   }
 
   public int getSpecial(){
-    return charge;
+    return necropoints;
   }
 
   public void setSpecial(int n){
-    charge = n;
+    necropoints = n;
   }
 
   public int getSpecialMax(){
-    return maxCharge;
+    return maxNecromagic;
   }
 
   public String attack(Adventurer other){
@@ -67,7 +67,7 @@ public class Boss extends Adventurer{
 
   /*Restores 5 special to other*/
   public String support(Adventurer other){
-    return getName() + " says kill them for me "+other+" and buffs his attack substantially "
+    return getName() + " says kill them for me "+other+" and buffs his attack substantially ";
 
   }
   /*Restores 6 special and 1 hp to self.*/

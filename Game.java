@@ -155,6 +155,12 @@ Text.go(81,31);
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
+      if (party.size() == 2){
+        Text.go(startRow, 2); // need textbox working for this
+        System.out.print(party.get(0));
+        Text.go(startRow, 42);
+        System.out.print(party.get(1));
+      }
     }
 
 
@@ -247,6 +253,7 @@ Text.go(81,31);
         System.out.print("┷");
       }
     }
+    drawParty(party, 27);
 
     Text.reset();
     Text.go(30,0);
@@ -317,7 +324,7 @@ Text.go(81,31);
     int whichPlayer = 0;
     int whichOpponent = 0;
     int turn = 0;
-    Cyborg defaultCyborgForComparision = Cyborg();
+    Cyborg defaultCyborgForComparision =  new Cyborg();
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border

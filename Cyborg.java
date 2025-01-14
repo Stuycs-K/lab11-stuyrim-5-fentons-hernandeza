@@ -40,7 +40,7 @@ public class Cyborg extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    setHP(getHP() + 2));
+    setHP(getHP() + 2);
     int damage = (int)((Math.random()*3) + 3);
     other.applyDamage(damage);
     restoreSpecial(2);
@@ -68,22 +68,14 @@ public class Cyborg extends Adventurer{
   /*Restores 5 special to other*/
   public String support(Adventurer other){
 
-    setHP(getHP() + 2));
-    return getName() + " says kill them for me "+other+" and buffs his attack substantially "
-    other.setAttackTicker(getAttackTick() + 1);
-
+    setHP(getHP() + 2);
+    other.setAttackTick(getAttackTick() + 1);
+    return getName() + " says kill them for me "+other+" and buffs his attack substantially ";
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
-    setHP(getHP() + 2));
-    setAttackTicker(getAttackTick() + 1)
+    setHP(getHP() + 2);
+    setAttackTick(getAttackTick() + 1);
     return getName() +" says fine I'll do it myself and significantly boosts their own attack power.";
   }
-
-
-
-
-
-
-
 }
