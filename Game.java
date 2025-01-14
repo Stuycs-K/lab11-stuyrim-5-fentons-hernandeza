@@ -342,24 +342,12 @@ Text.go(81,31);
 
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
-<<<<<<< HEAD
-       
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-=======
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
->>>>>>> a33288745d77f51acb1e2fc43d294947d0e6abc6
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
         }
-<<<<<<< HEAD
-        else if((input.equals("special") || input.equals("sp")) && isinstance(defaultCyborgForComparision, party.get(whichPlayer)){
-        //put the infrastructure to get new userInput and call the cyborg special attack three times, because it only functions once
-        party.get(whichPlayer).setHP(party.get(whichPlayer).getHP() + 1);
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-=======
         else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
->>>>>>> a33288745d77f51acb1e2fc43d294947d0e6abc6
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
         }
@@ -367,10 +355,10 @@ Text.go(81,31);
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }
+        //}
         
         
-        else if(input.startsWith("su ") || input.startsWith("support ")){
+        //else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
