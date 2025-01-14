@@ -1,7 +1,8 @@
 import java.util.Random;
 public abstract class Adventurer{
   private String name;
-  private int HP,maxHP;
+  private int HP,maxHP,attackTicker, attackMultiplier;
+  private boolean dead;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -10,16 +11,15 @@ public abstract class Adventurer{
   */
 
   //give it a short name (fewer than 13 characters)
-  // public abstract String getSpecialName(); !!!!!!!!
+  public abstract String getSpecialName();
   //accessor methods
-  //public abstract int getSpecial();         !!!!
-  //public abstract int getSpecialMax();     !!!!!
-  //public abstract void setSpecial(int n);    !!!!
- 
+  public abstract int getSpecial();
+  public abstract int getSpecialMax();
+  public abstract void setSpecial(int n);
 
   //concrete method written using abstract methods.
   //refill special resource by amount, but only up to at most getSpecialMax()
-  /*public int restoreSpecial(int n){
+  public int restoreSpecial(int n){
     if( n > getSpecialMax() - getSpecial()){
       n = getSpecialMax() - getSpecial();
     }
@@ -32,7 +32,7 @@ public abstract class Adventurer{
   support their allys
   */
   //hurt or hinder the target adventurer
-  //public abstract String attack(Adventurer other); !!!!!!!!!
+  public abstract String attack(Adventurer other);
 
   /*This is an example of an improvement that you can make to allow
    * for more flexible targetting.
@@ -41,13 +41,13 @@ public abstract class Adventurer{
   //public abstract String support(ArrayList<Adventurer> others);
 
   //heal or buff the target adventurer
-  //public abstract String support(Adventurer other); !!!!!!!
+  public abstract String support(Adventurer other);
 
   //heal or buff self
-  //public abstract String support(); !!!!!!!!!
+  public abstract String support();
 
   //hurt or hinder the target adventurer, consume some special resource
-  //public abstract String specialAttack(Adventurer other); !!!!!!!!!!!
+  public abstract String specialAttack(Adventurer other);
 
   /*
   standard methods
@@ -70,6 +70,9 @@ public abstract class Adventurer{
     this.name = name;
     this.HP = hp;
     this.maxHP = hp;
+    this.attackTicker = 0;
+    this.attackMultiplier = (1 + (1 / 2) * getAttackTick());
+    this.dead = false;
   }
 
   //toString method
@@ -81,6 +84,15 @@ public abstract class Adventurer{
   public String getName(){
     return name;
   }
+  
+  public int getAttackTick() {
+  return attackTicker;
+  }
+  
+  public int getAttackMultiplier() {
+  return attackMultiplier;
+  }
+
 
   public int getHP(){
     return HP;
@@ -93,10 +105,18 @@ public abstract class Adventurer{
     maxHP = newMax;
   }
 
+
+
   //Set Methods
   public void setHP(int health){
     this.HP = health;
   }
+
+  public void setAttackTick(int newAttackTicker) {
+  this.attackTicker = newAttackTicker;
+  this.attackMultiplier = (1 + (1 / 2) * getAttackTick());
+  }
+
 
   public void setName(String s){
     this.name = s;
