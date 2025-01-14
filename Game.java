@@ -29,13 +29,7 @@ public class Game{
 
 
   public static void main(String[] args) {
-    drawBackground();
-    try{
-    TextBox(3, 4, 2, 5, "AAADGAAAAAAAaHUIA");
-    }catch(Exception e){
-      System.out.print(e);
-    }
-    //run();
+    run();
   }
 
  public static void colorRGB(int r, int g, int b) {
@@ -133,7 +127,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
-    
+
     public static Adventurer createRandomAdventurer(){
       int rand = (int)(Math.random() * 3);
       int rand2 = (int)(Math.random() * 20);
@@ -386,8 +380,8 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         //}
-        
-        
+
+
         //else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
