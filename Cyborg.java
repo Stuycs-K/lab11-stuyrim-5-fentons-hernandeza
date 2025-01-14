@@ -39,42 +39,43 @@ public class Cyborg extends Adventurer{
     return maxCharge;
   }
 
-  /*Deal 2-7 damage to opponent, restores 2 caffeine*/
   public String attack(Adventurer other){
-    int damage = (int)((Math.random()*6)+2);
+    setHP(getHP() + 2));
+    int damage = (int)((Math.random()*3) + 3);
     other.applyDamage(damage);
     restoreSpecial(2);
-    return this + " attacked "+ other + " and dealt "+ damage +
-    " points of damage. They then take a sip of their coffee.";
+    return this + " hard punched "+ other + " and dealt "+ damage +
+    " points of damage. They then clank their gauntlets together.";
   }
 
-  /*Deal 3-12 damage to opponent, only if caffeine is high enough.
-  *Reduces caffeine by 8.
-  */
+
+
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
-      int damage = (int)((Math.random()*5+Math.random()*5)+3) * getAttackMultiplier();
+      int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
       other.applyDamage(damage);
-      return this + " used their "+preferredLanguage+
-      " skills to hack the matrix. "+
-      " This glitched out "+other+" dealing "+ damage +" points of damage.";
+      return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
+
+
     }else{
       return "Not enough caffeine to use the ultimate code. Instead "+attack(other);
     }
 
   }
+
+
   /*Restores 5 special to other*/
   public String support(Adventurer other){
-    return "Kill them for me "+other+" and buffs his attack substantially "
-    setAttackTicker(getAttackTick() + 1);
+    setHP(getHP() + 2));
+    return getName() + " says kill them for me "+other+" and buffs his attack substantially "
+    other.setAttackTicker(getAttackTick() + 1);
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
-    int hp = 1;
-    setHP(getHP()+hp);
-    return this+" drinks a coffee to restores "+restoreSpecial(6)+" "
-    + getSpecialName()+ " and "+hp+" HP";
+    setHP(getHP() + 2));
+    setAttackTicker(getAttackTick() + 1)
+    return getName() +" says fine I'll do it myself and significantly boosts his own attack power.";
   }
 
 
