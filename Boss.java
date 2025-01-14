@@ -1,5 +1,5 @@
 public class Boss extends Adventurer{
-//have to code the rest of this 
+//have to code the rest of this
   int necropoints, maxNecromagic;
   String elimQuote;
 
@@ -56,7 +56,7 @@ public class Boss extends Adventurer{
       int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
       other.applyDamage(damage);
 
-      return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
+      return this + " used their laser barrage dealing " + damage + " points of damage and singeing their enemies";
 
     }else{
       return "Not enough energy to use the ultimate code. Instead "+attack(other);
@@ -76,7 +76,9 @@ public class Boss extends Adventurer{
     return getName() +" says fine I'll do it myself and significantly boosts their own attack power.";
   }
 
-
+  public String toString() {
+    return "TechnoLich " + super.toString();
+  }
 
 
 

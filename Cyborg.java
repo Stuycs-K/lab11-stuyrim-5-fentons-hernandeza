@@ -48,7 +48,7 @@ public class Cyborg extends Adventurer{
     " points of damage. They then clank their gauntlets together.";
   }
 
-
++ " used their laser barrage dealing " + damage + " points of damage and singeing their enemies"
 
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
@@ -77,5 +77,9 @@ public class Cyborg extends Adventurer{
     setHP(getHP() + 2);
     setAttackTick(getAttackTick() + 1);
     return getName() +" says fine I'll do it myself and significantly boosts their own attack power.";
+  }
+
+  public String toString() {
+    return "Cyborg " + super.toString();
   }
 }
