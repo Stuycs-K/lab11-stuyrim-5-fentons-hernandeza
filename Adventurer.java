@@ -10,15 +10,16 @@ public abstract class Adventurer{
   */
 
   //give it a short name (fewer than 13 characters)
-  public abstract String getSpecialName();
+  // public abstract String getSpecialName(); !!!!!!!!
   //accessor methods
-  public abstract int getSpecial();
-  public abstract int getSpecialMax();
-  public abstract void setSpecial(int n);
+  //public abstract int getSpecial();         !!!!
+  //public abstract int getSpecialMax();     !!!!!
+  //public abstract void setSpecial(int n);    !!!!
+ 
 
   //concrete method written using abstract methods.
   //refill special resource by amount, but only up to at most getSpecialMax()
-  public int restoreSpecial(int n){
+  /*public int restoreSpecial(int n){
     if( n > getSpecialMax() - getSpecial()){
       n = getSpecialMax() - getSpecial();
     }
@@ -31,7 +32,7 @@ public abstract class Adventurer{
   support their allys
   */
   //hurt or hinder the target adventurer
-  public abstract String attack(Adventurer other);
+  //public abstract String attack(Adventurer other); !!!!!!!!!
 
   /*This is an example of an improvement that you can make to allow
    * for more flexible targetting.
@@ -40,13 +41,13 @@ public abstract class Adventurer{
   //public abstract String support(ArrayList<Adventurer> others);
 
   //heal or buff the target adventurer
-  public abstract String support(Adventurer other);
+  //public abstract String support(Adventurer other); !!!!!!!
 
   //heal or buff self
-  public abstract String support();
+  //public abstract String support(); !!!!!!!!!
 
   //hurt or hinder the target adventurer, consume some special resource
-  public abstract String specialAttack(Adventurer other);
+  //public abstract String specialAttack(Adventurer other); !!!!!!!!!!!
 
   /*
   standard methods
