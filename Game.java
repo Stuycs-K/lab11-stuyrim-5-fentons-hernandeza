@@ -158,8 +158,26 @@ Text.go(81,31);
       if (party.size() == 2){
         Text.go(startRow, 2); // need textbox working for this
         System.out.print(party.get(0));
-        Text.go(startRow, 42);
+        Text.go(startRow, 41);
         System.out.print(party.get(1));
+      }
+      if (party.size() == 3){
+        Text.go(startRow, 2);
+        System.out.print(party.get(0));
+        Text.go(startRow, 27);
+        System.out.print(party.get(1));
+        Text.go(startRow, 55);
+        System.out.print(party.get(2));
+      }
+      if (party.size() == 4){
+        Text.go(startRow, 2);
+        System.out.print(party.get(0));
+        Text.go(startRow, 21);
+        System.out.print(party.get(1));
+        Text.go(startRow, 41);
+        System.out.print(party.get(2));
+        Text.go(startRow, 61);
+        System.out.print(party.get(3));
       }
     }
 
