@@ -84,11 +84,11 @@ public abstract class Adventurer{
   public String getName(){
     return name;
   }
-  
+
   public int getAttackTick() {
   return attackTicker;
   }
-  
+
   public int getAttackMultiplier() {
   return attackMultiplier;
   }
@@ -105,7 +105,9 @@ public abstract class Adventurer{
     maxHP = newMax;
   }
 
-
+public boolean dead() {
+  return dead;
+}
 
   //Set Methods
   public void setHP(int health){
@@ -120,5 +122,15 @@ public abstract class Adventurer{
 
   public void setName(String s){
     this.name = s;
+  }
+
+  public void setDeathStatus(boolean a) {
+    this.dead = a;
+  }
+
+  public void killIfNecessary() {
+    if (getHP() == 0) {
+      setDeathStatus(true);
+    }
   }
 }
