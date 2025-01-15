@@ -315,8 +315,8 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     for (int i = 0; i < input.length(); i++) {
      for (int z = 0; z < allTheoreticalNumbersPreviouslyDiscoveredOrNot.length; z++) {
   try{
-     if (allTheoreticalNumbersPreviouslyDiscoveredOrNot[z] == Integer.parseint(input[i])) {
-       return Integer.parseint(input[i]);
+     if (allTheoreticalNumbersPreviouslyDiscoveredOrNot[z] == Integer.parseint(input.substring(0,1)) {
+       return i;
      }
    }
    catch (NumberFormatException e) {
@@ -324,7 +324,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
    }
      }
     }
-    return -100000000000000000;
+    return -100000;
    }
   public static void run(){
     Text.hideCursor();
