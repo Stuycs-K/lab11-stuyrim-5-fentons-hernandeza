@@ -349,7 +349,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     drawScreen(enemies, party);//initial state.
 
     //Main loop
-    /*
+
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
 
@@ -415,9 +415,8 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices 	 here!
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
+
         //YOUR CODE HERE
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
 
 
         //Decide where to draw the following prompt:
@@ -438,7 +437,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         //display this prompt before player's turn
         String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
       }
-
+createRandomAdventurer
       //display the updated screen after input has been processed.
       drawScreen();
 
@@ -447,6 +446,6 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
     //After quit reset things:
     quit();
- */
+
   }
 }
