@@ -324,7 +324,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
    }
      }
     }
-    return -100000000000000000;
+    return -100000000;
    }
   public static void run(){
     Text.hideCursor();
