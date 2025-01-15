@@ -151,9 +151,9 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
       if (party.size() == 1){
-        TextBox(startRow, 34, 38, 1, party.get(0).getName());
-        TextBox(startRow+1, 37, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
-        TextBox(startRow+2, 38, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
+        TextBox(startRow, 38, 38, 1, party.get(0).getName());
+        TextBox(startRow+1, 38, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
+        TextBox(startRow+2, 39, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
       }
       if (party.size() == 2){
         int k = 0;
@@ -324,7 +324,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     int rand = (int) (Math.random() * 3);
     if (rand == 0){
-      enemies.add(new Boss("The Lich King", 20 + (int)(Math.random() * 9)));
+      enemies.add(new Boss());
     }
     else if (rand == 1){
       enemies.add(createRandomAdventurer());
@@ -365,8 +365,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     //You can add parameters to draw screen!
     drawScreen(enemies, party);//initial state.
 
-    //Main loop
-    /*
+    Text.showCursor();
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
 
@@ -382,14 +381,14 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("special") || input.equals("sp")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if((input.equals("special") || input.equals("sp"))){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -401,9 +400,9 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         //else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
 
         //You should decide when you want to re-ask for user input
@@ -432,9 +431,9 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices 	 here!
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
+        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
         //Decide where to draw the following prompt:
@@ -457,13 +456,12 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
       }
 
       //display the updated screen after input has been processed.
-      drawScreen();
+      //drawScreen(enemies, party);
 
     }//end of main game loop
 
 
     //After quit reset things:
     quit();
- */
   }
 }
