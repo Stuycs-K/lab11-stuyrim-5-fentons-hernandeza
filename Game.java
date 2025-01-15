@@ -5,10 +5,26 @@ public class Game{
   private static final int BORDER_COLOR = Text.BLACK;
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
   private static final String[] fantasyNames = {
-            "Arwen", "Eldon", "Thain", "Lyric", "Sylis",
-            "Niven", "Gromm", "Korra", "Viren", "Zorin",
-            "Lyria", "Torin", "Faryn", "Myrrh", "Kyren",
-            "Riven", "Taran", "Sorin", "Xylen", "Cyric"
+    "Eldrin",
+    "Thalia",
+    "Brom",
+    "Lyra",
+    "Dorian",
+    "Kaelin",
+    "Roderick",
+    "Seraphina",
+    "Gromm",
+    "Elowen",
+    "Talon",
+    "Vespera",
+    "Finnian",
+    "Zara",
+    "Korrin",
+    "Mira",
+    "Jareth",
+    "Selene",
+    "Thorne",
+    "Cassandra"
 };
 
 
@@ -135,45 +151,45 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
       if (party.size() == 1){
-        TextBox(startRow, 30, 38, 1, party.get(0).getType() + ": " + party.get(0).getName());
-        TextBox(startRow+1, 37, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
-        TextBox(startRow+2, 38, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
+        TextBox(startRow, 38, 38, 1, party.get(0).getName());
+        TextBox(startRow+1, 38, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
+        TextBox(startRow+2, 39, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
       }
       if (party.size() == 2){
         int k = 0;
         for (int i = 2; i < 50; i += 39){
-          TextBox(startRow, i, 38, 1, party.get(k).getType() + ": " + party.get(k).getName());
+          TextBox(startRow, i, 38, 1, party.get(k).getName());
           TextBox(startRow+1, i, 38, 1, party.get(k).getHP() + "/" + party.get(k).getmaxHP());
           TextBox(startRow+2, i, 38, 1, party.get(k).getSpecial() + "/" + party.get(k).getSpecialMax());
           k++;
         }
       }
       if (party.size() == 3){
-        TextBox(startRow, 2, 38, 1, party.get(0).getType() + ": " + party.get(0).getName());
+        TextBox(startRow, 2, 38, 1, party.get(0).getName());
         TextBox(startRow+1, 2, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
         TextBox(startRow+2, 2, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
 
-        TextBox(startRow, 27, 38, 1, party.get(1).getType() + ": " + party.get(1).getName());
+        TextBox(startRow, 27, 38, 1, party.get(1).getName());
         TextBox(startRow+1, 27, 38, 1, party.get(1).getHP() + "/" + party.get(1).getmaxHP());
         TextBox(startRow+2, 27, 38, 1, party.get(1).getSpecial() + "/" + party.get(1).getSpecialMax());
 
-        TextBox(startRow, 55, 38, 1, party.get(2).getType() + ": " + party.get(2).getName());
+        TextBox(startRow, 55, 38, 1, party.get(2).getName());
         TextBox(startRow+1, 55, 38, 1, party.get(2).getHP() + "/" + party.get(2).getmaxHP());
         TextBox(startRow+2, 55, 38, 1, party.get(2).getSpecial() + "/" + party.get(2).getSpecialMax());
       }
       if (party.size() == 4){
         int k = 0;
         for (int i = 2; i < 40; i += 19){
-          TextBox(startRow, i, 38, 1, party.get(k).getType() + ": " + party.get(k).getName());
+          TextBox(startRow, i, 38, 1, party.get(k).getName());
           TextBox(startRow+1, i, 38, 1, party.get(k).getHP() + "/" + party.get(k).getmaxHP());
           TextBox(startRow+2, i, 38, 1, party.get(k).getSpecial() + "/" + party.get(k).getSpecialMax());
           k++;
         }
-        TextBox(startRow, 41, 38, 1, party.get(2).getType() + ": " + party.get(2).getName());
+        TextBox(startRow, 41, 38, 1, party.get(2).getName());
         TextBox(startRow+1, 41, 38, 1, party.get(2).getHP() + "/" + party.get(2).getmaxHP());
         TextBox(startRow+2, 41, 38, 1, party.get(2).getSpecial() + "/" + party.get(2).getSpecialMax());
 
-        TextBox(startRow, 61, 38, 1, party.get(3).getType() + ": " + party.get(3).getName());
+        TextBox(startRow, 61, 38, 1, party.get(3).getName());
         TextBox(startRow+1, 61, 38, 1, party.get(3).getHP() + "/" + party.get(3).getmaxHP());
         TextBox(startRow+2, 61, 38, 1, party.get(3).getSpecial() + "/" + party.get(3).getSpecialMax());
       }
@@ -323,7 +339,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     int rand = (int) (Math.random() * 3);
     if (rand == 0){
-      enemies.add(new Boss("The Lich King", 20 + (int)(Math.random() * 9)));
+      enemies.add(new Boss());
     }
     else if (rand == 1){
       enemies.add(createRandomAdventurer());
@@ -356,6 +372,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     int whichPlayer = 0;
     int whichOpponent = 0;
     int turn = 0;
+    Cyborg defaultCyborgForComparision =  new Cyborg();
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
@@ -363,8 +380,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     //You can add parameters to draw screen!
     drawScreen(enemies, party);//initial state.
 
-    //Main loop
-
+    Text.showCursor();
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
 
@@ -380,28 +396,21 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
-        }
-        else if((input.equals("special") || input.equals("sp")) && Party.get(whichPlayer).getSpecialName().equals("charge")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
-        }
-        else if((input.equals("special") || input.equals("sp"))){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
+          party.get(whichPlayer).attack(enemies.get(grabNumber(input)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        //}
-
-
-        //else if(input.startsWith("su ") || input.startsWith("support ")){
+        }
+        else if(input.equals("special") || input.equals("sp")){
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input)));
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        }
+        else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          party.get(whichPlayer).support(enemies.get(grabNumber(input)));
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
 
         //You should decide when you want to re-ask for user input
@@ -430,8 +439,9 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices 	 here!
-
+        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
         //Decide where to draw the following prompt:
@@ -452,15 +462,14 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         //display this prompt before player's turn
         String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
       }
-createRandomAdventurer
+
       //display the updated screen after input has been processed.
-      drawScreen();
+      //drawScreen(enemies, party);
 
     }//end of main game loop
 
 
     //After quit reset things:
     quit();
-
   }
 }

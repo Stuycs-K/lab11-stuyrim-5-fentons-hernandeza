@@ -1,17 +1,17 @@
 public class TechPriest extends Adventurer{
   int mana, manaMax;
-  String preferredLanguage;
+  String elimQuote;
 
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
-  public TechPriest(String name, int hp, String language){
+  public TechPriest(String name, int hp, String elimQuote){
     super(name,hp);
     manaMax = 12;
-    mana = caffeineMax/2;
-    preferredLanguage = language;
+    mana = manaMax/2;
+    elimQuote = elimQuote;
   }
 
-  public TechPriest(String name, int hp, String elimQuote){
+  public TechPriest(String name, int hp){
     this(name,hp,"By the power of the omnissiah");
   }
 
@@ -32,11 +32,11 @@ public class TechPriest extends Adventurer{
   }
 
   public void setSpecial(int n){
-    caffeine = n;
+    mana = n;
   }
 
   public int getSpecialMax(){
-    return caffeineMax;
+    return manaMax;
   }
 
 public String attack(Adventurer other){
@@ -67,7 +67,7 @@ public String attack(Adventurer other){
     return "TechPriest";
   }
 
-  
+
   public String support(Adventurer other){
     setHP(getHP() + 2);
     other.setAttackTick(getAttackTick() + 1);
