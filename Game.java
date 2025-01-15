@@ -294,7 +294,22 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     Text.showCursor();
     Text.go(32,1);
   }
+  public static int grabNumber(String input) {
+    int[] allTheoreticalNumbersPreviouslyDiscoveredOrNot = {0,1,2,3};
+    for (int i = 0; i < input.length(); i++) {
+     for (int z = 0; z < allTheoreticalNumbersPreviouslyDiscoveredOrNot.length; z++) {
+  try{
+     if (allTheoreticalNumbersPreviouslyDiscoveredOrNot[z] == Integer.parseint(input[i])) {
+       return Integer.parseint(input[i]);
+     }
+   }
+   catch (NumberFormatException e) {
 
+   }
+     }
+    }
+    return -100000000000000000;
+   }
   public static void run(){
     Text.hideCursor();
     Text.clear();
