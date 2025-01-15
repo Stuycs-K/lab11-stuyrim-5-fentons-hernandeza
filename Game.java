@@ -357,7 +357,6 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     int whichPlayer = 0;
     int whichOpponent = 0;
     int turn = 0;
-    Cyborg defaultCyborgForComparision =  new Cyborg();
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
@@ -386,7 +385,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
         }
-        else if(input.equals("special") || input.equals("sp")){
+        else if((input.equals("special") || input.equals("sp")) && Party.get(whichPlayer).getSpecialName().equals("charge")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*
