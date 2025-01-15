@@ -63,6 +63,10 @@ public String attack(Adventurer other){
     }
 
   }
+  public String getType(){
+    return "TechPriest";
+  }
+
   
   public String support(Adventurer other){
     setHP(getHP() + 2);

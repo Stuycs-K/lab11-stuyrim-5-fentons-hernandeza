@@ -37,6 +37,10 @@ public class CodeWarrior extends Adventurer{
     caffeine = n;
   }
 
+  public String getType(){
+    return "CodeWarrior";
+  }
+
   public int getSpecialMax(){
     return caffeineMax;
   }

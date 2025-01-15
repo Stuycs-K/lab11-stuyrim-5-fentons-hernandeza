@@ -23,6 +23,10 @@ public class Cyborg extends Adventurer{
   }
 
   /*The next 8 methods are all required because they are abstract:*/
+  public String getType(){
+    return "Cyborg";
+  }
+
   public String getSpecialName(){
     return "charge";
   }

@@ -64,9 +64,6 @@ public class Boss extends Adventurer{
     }
 
   }
-  public String toString() {
-    return "TechnoLich " + super.toString();
-  }
 
   /*Restores 5 special to other*/
   public String support(Adventurer other){
@@ -74,8 +71,10 @@ public class Boss extends Adventurer{
 
   }
   /*Restores 6 special and 1 hp to self.*/
+  public String getType(){
+    return "Boss";
+  }
   public String support(){
-
     return getName() +" says fine I'll do it myself and significantly boosts their own attack power.";
   }
 
