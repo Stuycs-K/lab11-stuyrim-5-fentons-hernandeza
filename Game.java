@@ -400,6 +400,12 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           party.get(whichPlayer).attack(enemies.get(grabNumber(input)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
+        //Cyborg check for now, make three time call make sense
+        else if ((input.equals("special") || input.equals("sp")) && party.get(whichPlayer).getSpecialName().equals("charge")) {
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input)));
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        }
         else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input)));
