@@ -316,7 +316,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
      for (int z = 0; z < allTheoreticalNumbersPreviouslyDiscoveredOrNot.length; z++) {
   try{
      if (allTheoreticalNumbersPreviouslyDiscoveredOrNot[z] == Integer.parseInt(input.substring(i, i + 1))) {
-       return i;
+       return allTheoreticalNumbersPreviouslyDiscoveredOrNot[z];
      }
    }
    catch (NumberFormatException e) {
