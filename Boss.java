@@ -43,6 +43,7 @@ public class Boss extends Adventurer{
   public String attack(Adventurer other){
     int damage = (int)((Math.random()*5) + 2);
     other.applyDamage(damage);
+    killIfNecessary();
     restoreSpecial(2);
     return this + " fired a laser beam at "+ other + " and dealt "+ damage +
     " points of damage. They then let out a horrifying grin.";
@@ -55,7 +56,7 @@ public class Boss extends Adventurer{
       setSpecial(getSpecial()-8);
       int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
       other.applyDamage(damage);
-
+      killIfNecessary();
       return this + " used their laser barrage dealing " + damage + " points of damage and singeing their enemies";
 
     }else{
@@ -64,15 +65,16 @@ public class Boss extends Adventurer{
 
   }
 
-
   /*Restores 5 special to other*/
   public String support(Adventurer other){
     return getName() + " says kill them for me "+other+" and buffs his attack substantially ";
 
   }
   /*Restores 6 special and 1 hp to self.*/
+  public String getType(){
+    return "Boss";
+  }
   public String support(){
-
     return getName() +" says fine I'll do it myself and significantly boosts their own attack power.";
   }
 

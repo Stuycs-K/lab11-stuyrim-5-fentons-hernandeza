@@ -397,7 +397,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         //}
 
 
-        //else if(input.startsWith("su ") || input.startsWith("support ")){
+        else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
