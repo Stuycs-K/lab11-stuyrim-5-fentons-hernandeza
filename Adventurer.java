@@ -78,7 +78,7 @@ public abstract class Adventurer{
 
   //toString method
   public String toString(){
-    return (this.getName());
+    return (this.getName() + "\n" + this.getHP() + "/" + this.getmaxHP() + "\n" + this.getSpecial() + "/" + this.getSpecialMax());
   }
 
   //Get Methods

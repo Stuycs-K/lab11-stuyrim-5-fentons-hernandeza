@@ -372,6 +372,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     int whichPlayer = 0;
     int whichOpponent = 0;
     int turn = 0;
+    Cyborg defaultCyborgForComparision =  new Cyborg();
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
@@ -382,30 +383,29 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     Text.showCursor();
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-    System.out.println(preprompt);
-    while(! (startsWithIgnoreCase(input, "q") || startsWithIgnoreCase(input, "quit"))){
-      //Read user input
-      System.out.print("input: ");
 
+    while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
+      //Read user input
       input = userInput(in);
 
       //example debug statment
-      //TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+      TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
       //display event based on last turn's input
       if(partyTurn){
+
         //Process user input for the last Adventurer:
-        if(startsWithIgnoreCase(input, "attack") || startsWithIgnoreCase(input, "a")){
+        if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           party.get(whichPlayer).attack(enemies.get(grabNumber(input)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(startsWithIgnoreCase(input, "special") || startsWithIgnoreCase(input, "sp")){
+        else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")){
+        else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -415,7 +415,6 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         //You should decide when you want to re-ask for user input
         //If no errors:
-        //drawScreen(enemies, party);
         whichPlayer++;
 
 
@@ -423,14 +422,15 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           //This is a player turn.
           //Decide where to draw the following prompt:
           String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-          System.out.println(prompt);
+
+
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
           String prompt = "press enter to see monster's turn";
+
           partyTurn = false;
           whichOpponent = 0;
-          System.out.println(prompt);
         }
         //done with one party member
       }else{
@@ -446,7 +446,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         //Decide where to draw the following prompt:
         String prompt = "press enter to see next turn";
-        System.out.println(prompt);
+
         whichOpponent++;
 
       }//end of one enemy.
@@ -464,7 +464,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
       }
 
       //display the updated screen after input has been processed.
-      drawScreen(enemies, party);
+      //drawScreen(enemies, party);
 
     }//end of main game loop
 
