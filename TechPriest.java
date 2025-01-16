@@ -42,10 +42,10 @@ public class TechPriest extends Adventurer{
 public String attack(Adventurer other){
 //set attack ticker to -1 and then reset attack ticker at the time
     other.setBleedCount(other.getBleedCount() + 1);
-    
+    other.setAttackTick(other.getAttackTick() - 1);
+    other.setAttackMultiplier();
     restoreSpecial(2);
-    return this + " hard punched "+ other + " and dealt "+ damage + // IMPORTANT THIS IS CYBORG CODE FIX LATER
-    " points of damage. They then clank their gauntlets together.";
+return this + " hacks " + other.getName() + " and causes them to bleed, reducing their attack power and making them take persistant damage.";
   }
 
 
@@ -53,8 +53,6 @@ public String attack(Adventurer other){
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
-      int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
-      other.applyDamage(damage);
 
       return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies"; //SAME FOR THIS
 

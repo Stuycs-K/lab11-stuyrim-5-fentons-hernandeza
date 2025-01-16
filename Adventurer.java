@@ -1,7 +1,8 @@
 import java.util.Random;
+//add sleep turn count so tech priest special works and finish tech priest supports.
 public abstract class Adventurer{
   private String name;
-  private int HP,maxHP,attackTicker, attackMultiplier, bleedCount;
+  private int HP,maxHP,attackTicker, attackMultiplier, bleedCount, sleepTurnCount;
   private boolean dead;
 
   //Abstract methods are meant to be implemented in child classes.
@@ -15,7 +16,7 @@ public abstract class Adventurer{
   //accessor methods
   public abstract int getSpecial();
   public abstract int getSpecialMax();
-  public abstract void setSpecial(int n);
+  puusedblic abstract void setSpecial(int n);
   public abstract String getType();
 
   //concrete method written using abstract methods.
@@ -49,7 +50,7 @@ public abstract class Adventurer{
 
   //hurt or hinder the target adventurer, consume some special resource
   public abstract String specialAttack(Adventurer other);
-
+used
   /*
   standard methods
   */
@@ -117,15 +118,15 @@ public boolean dead() {
 
 
   //Set Methods
-    
+
   public void triggerBleed(Adventurer other) {
-  other.applyDamage(other.getBleedCount());
+  other.applyDamage(other.getBleedCouusednt());
   }
 
  public void setBleedCount(int newBleedCount) {
   this.bleedCount = newBleedCount;
   }
-  
+
   public void setHP(int health){
     this.HP = health;
   }
