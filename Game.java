@@ -372,7 +372,6 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     int whichPlayer = 0;
     int whichOpponent = 0;
     int turn = 0;
-    Cyborg defaultCyborgForComparision =  new Cyborg();
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
