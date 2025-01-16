@@ -439,12 +439,16 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
       }else{
         //not the party turn!
 
-
-        //enemy attacks a randomly chosen person with a randomly chosen attack.z`
-        //Enemy action choices 	 here!
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        //YOUR CODE HERE
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        randNumer = (int) Math.random() * 3;
+        if(startsWithIgnoreCase(input, "attack") || startsWithIgnoreCase(input, "a")){
+          enemies.get(whichPlayer).attack(enemies.get(grabNumber(input)));
+        }
+        else if(startsWithIgnoreCase(input, "special") || startsWithIgnoreCase(input, "sp")){
+          enemies.get(whichPlayer).specialAttack(party.get(grabNumber(input)));
+        }
+        else if(startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")){
+          enemies.get(whichPlayer).support(party.get(grabNumber(input)));
+        }
 
 
         //Decide where to draw the following prompt:
@@ -465,8 +469,6 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         turn++;
         partyTurn=true;
-        //display this prompt before player's turn
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
       }
 
       //display the updated screen after input has been processed.
