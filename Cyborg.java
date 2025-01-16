@@ -61,19 +61,25 @@ public class Cyborg extends Adventurer{
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
-      int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
-      other.applyDamage(damage);
-      killIfNecessary();
-      //figure out how to trigger this multiple times while checking the condition once
-      if (other.dead() == true) {
-        return this + " heard punched " + other + " killing them and saying " + elimQuote;
-      }
-      return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
-
-    }else{
+   System.out.println(specialAttackHelper(other));
+   System.out.println(specialAttackHelper(other));
+   System.out.println(specialAttackHelper(other));
+   return "";
+   }
+   else{
       return "Not enough energy to use the ultimate code. Instead "+attack(other);
     }
 
+  }
+  public String specialAttackHelper(Adventurer other) {
+  int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
+  other.applyDamage(damage);
+  killIfNecessary();
+  if (other.dead() == true) {
+  return this + " heard punched " + other + " killing them and saying " + elimQuote;
+  }
+  return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
+  
   }
 
 
