@@ -1,7 +1,7 @@
 import java.util.Random;
 public abstract class Adventurer{
   private String name;
-  private int HP,maxHP,attackTicker, attackMultiplier;
+  private int HP,maxHP,attackTicker, attackMultiplier, bleedCount;
   private boolean dead;
 
   //Abstract methods are meant to be implemented in child classes.
@@ -110,7 +110,22 @@ public boolean dead() {
   return dead;
 }
 
+
+  public int getBleedCount() {
+  return bleedCount;
+  }
+
+
   //Set Methods
+    
+  public void triggerBleed(Adventurer other) {
+  other.applyDamage(other.getBleedCount());
+  }
+
+ public void setBleedCount(int newBleedCount) {
+  this.bleedCount = newBleedCount;
+  }
+  
   public void setHP(int health){
     this.HP = health;
   }
