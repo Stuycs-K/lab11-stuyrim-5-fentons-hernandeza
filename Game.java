@@ -422,6 +422,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         //You should decide when you want to re-ask for user input
         //If no errors:
+        //drawScreen(enemies, party);
         whichPlayer++;
 
 
@@ -436,6 +437,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           String prompt = "press enter to see monster's turn";
           partyTurn = false;
           whichOpponent = 0;
+          System.out.println(prompt);
         }
         //done with one party member
       }else{
@@ -451,7 +453,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         //Decide where to draw the following prompt:
         String prompt = "press enter to see next turn";
-
+        System.out.println(prompt);
         whichOpponent++;
 
       }//end of one enemy.
@@ -469,7 +471,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
       }
 
       //display the updated screen after input has been processed.
-      //drawScreen(enemies, party);
+      drawScreen(enemies, party);
 
     }//end of main game loop
 
