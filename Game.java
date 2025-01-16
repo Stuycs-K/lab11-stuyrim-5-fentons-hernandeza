@@ -383,10 +383,9 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     Text.showCursor();
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-
-    while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
+    System.out.println(preprompt);
+    while(! (startsWithIgnoreCase(input, "q") || startsWithIgnoreCase(input, "quit"))){
       //Read user input
-      System.out.println(preprompt);
       System.out.print("input: ");
 
       input = userInput(in);
@@ -396,25 +395,24 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
       //display event based on last turn's input
       if(partyTurn){
-
         //Process user input for the last Adventurer:
-        if(input.equals("attack") || input.equals("a")){
+        if(startsWithIgnoreCase(input, "attack") || startsWithIgnoreCase(input, "a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           party.get(whichPlayer).attack(enemies.get(grabNumber(input)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         //Cyborg check for now, make three time call make sense
-        else if ((input.equals("special") || input.equals("sp")) && party.get(whichPlayer).getSpecialName().equals("charge")) {
+        else if ((startsWithIgnoreCase(input, "special") || startsWithIgnoreCase(input, "sp")) && party.get(whichPlayer).getSpecialName().equals("charge")) {
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.equals("special") || input.equals("sp")){
+        else if(startsWithIgnoreCase(input, "special") || startsWithIgnoreCase(input, "sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.startsWith("su ") || input.startsWith("support ")){
+        else if(startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -431,13 +429,11 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           //This is a player turn.
           //Decide where to draw the following prompt:
           String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-
-
+          System.out.println(prompt);
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
           String prompt = "press enter to see monster's turn";
-
           partyTurn = false;
           whichOpponent = 0;
         }
