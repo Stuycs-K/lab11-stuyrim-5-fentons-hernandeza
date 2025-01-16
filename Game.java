@@ -383,23 +383,23 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
     //You can add parameters to draw screen!
     drawScreen(enemies, party);//initial state.
-    Text.go(23,2);
     Text.showCursor();
     //Text.go(10,1);
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-    System.out.println(preprompt);
+
     while(! (startsWithIgnoreCase(input, "q") || startsWithIgnoreCase(input, "quit"))){
       //Read user input
-      System.out.print("input: ");
-
-      input = userInput(in);
 
       //example debug statment
       //TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
       //display event based on last turn's input
       if(partyTurn){
+        String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+        TextBox(23, 2, 78, 2, preprompt);
+        TextBox(24, 2, 78, 2, "Input: ");
+
+        input = userInput(in);
         //Process user input for the last Adventurer:
         if(startsWithIgnoreCase(input, "attack") || startsWithIgnoreCase(input, "a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -425,18 +425,15 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         whichPlayer++;
 
 
-        if(whichPlayer < party.size()){
-          //This is a player turn.
-          //Decide where to draw the following prompt:
-          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-          System.out.print(prompt);
-        }else{
+        if(!(whichPlayer < party.size())){
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
-          String prompt = "press enter to see monster's turn";
+          String prompt = "Press enter to see monster's turn";
           partyTurn = false;
           whichOpponent = 0;
-          System.out.print(prompt);
+          drawScreen(enemies, party);
+          TextBox(23, 2, 78, 2, prompt);
+          input = userInput(in);
         }
         //done with one party member
       }else{
@@ -451,8 +448,11 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
 
         //Decide where to draw the following prompt:
-        String prompt = "press enter to see next turn";
-        System.out.println(prompt);
+        if (whichOpponent != 0){
+          String prompt = "Press enter to see next turn";
+          TextBox(23, 2, 78, 2, prompt);
+          input = userInput(in);
+        }
         whichOpponent++;
 
       }//end of one enemy.
