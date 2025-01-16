@@ -67,6 +67,7 @@ return this + " hacks " + other.getName() + " and causes them to bleed, reducing
 
 
   public String support(Adventurer other){
+    setHP(getHP() + 2);
     other.setAttackTick(getAttackTick() + 1);
     return getName() + " says kill them for me "+other+" and buffs his attack substantially ";
   }
