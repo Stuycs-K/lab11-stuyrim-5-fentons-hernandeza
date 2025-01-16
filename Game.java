@@ -439,15 +439,15 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
       }else{
         //not the party turn!
 
-        randNumer = (int) Math.random() * 3;
-        if(startsWithIgnoreCase(input, "attack") || startsWithIgnoreCase(input, "a")){
-          enemies.get(whichPlayer).attack(enemies.get(grabNumber(input)));
+        int randNumber = (int) Math.random() * 3;
+        if(randNumber == 0){
+          enemies.get(whichOpponent).attack(party.get((int) Math.random() * party.size()));
         }
-        else if(startsWithIgnoreCase(input, "special") || startsWithIgnoreCase(input, "sp")){
-          enemies.get(whichPlayer).specialAttack(party.get(grabNumber(input)));
+        else if(randNumber == 1){
+          enemies.get(whichOpponent).specialAttack(party.get((int) Math.random() * party.size()));
         }
-        else if(startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")){
-          enemies.get(whichPlayer).support(party.get(grabNumber(input)));
+        else{
+          enemies.get(whichOpponent).support(party.get((int) Math.random() * party.size()));
         }
 
 
