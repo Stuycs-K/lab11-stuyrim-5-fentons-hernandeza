@@ -78,7 +78,7 @@ public abstract class Adventurer{
 
   //toString method
   public String toString(){
-    return (this.getName() + "\n" + this.getHP() + "/" + this.getmaxHP() + "\n" + this.getSpecial() + "/" + this.getSpecialMax());
+    return (this.getName());
   }
 
   //Get Methods
@@ -117,7 +117,7 @@ public boolean dead() {
 
 
   //Set Methods
-    
+
   public void triggerBleed(Adventurer other) {
   other.applyDamage(other.getBleedCount());
   }
@@ -125,7 +125,7 @@ public boolean dead() {
  public void setBleedCount(int newBleedCount) {
   this.bleedCount = newBleedCount;
   }
-  
+
   public void setHP(int health){
     this.HP = health;
   }

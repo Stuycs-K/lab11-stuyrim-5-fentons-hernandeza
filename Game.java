@@ -46,7 +46,7 @@ public class Game{
        if (x == 0 || x == length - 1) {
          System.out.print("┃");
        }
-       else if (y == 0 || y == height - 1 || y == 4 || y == 25) {
+       else if (y == 0 || y == height - 1 || y == 4 || y == 25 || y == 21) {
         System.out.print("━");
        }
         else {
@@ -67,6 +67,10 @@ public class Game{
     Text.go(5,0);
     System.out.print("┣");
     Text.go(5,80);
+    System.out.print("┫");
+    Text.go(22,0);
+    System.out.print("┣");
+    Text.go(22,80);
     System.out.print("┫");
     Text.go(26,0);
     System.out.print("┣");
@@ -379,8 +383,9 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
     //You can add parameters to draw screen!
     drawScreen(enemies, party);//initial state.
-
+    Text.go(23,2);
     Text.showCursor();
+    //Text.go(10,1);
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
     System.out.println(preprompt);
@@ -424,14 +429,14 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           //This is a player turn.
           //Decide where to draw the following prompt:
           String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-          System.out.println(prompt);
+          System.out.print(prompt);
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
           String prompt = "press enter to see monster's turn";
           partyTurn = false;
           whichOpponent = 0;
-          System.out.println(prompt);
+          System.out.print(prompt);
         }
         //done with one party member
       }else{
