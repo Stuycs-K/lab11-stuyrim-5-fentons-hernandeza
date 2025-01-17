@@ -47,7 +47,7 @@ public class CodeWarrior extends Adventurer{
 
   /*Deal 2-7 damage to opponent, restores 2 caffeine*/
   public String attack(Adventurer other){
-    int damage = (int)(Math.random()*6)+2;
+    int damage = ((int)(Math.random()*6)+2) * getAttackMultiplier();
     other.applyDamage(damage);
     killIfNecessary();
     restoreSpecial(2);
@@ -61,7 +61,7 @@ public class CodeWarrior extends Adventurer{
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
-      int damage = (int)(Math.random()*5+Math.random()*5)+3;
+      int damage = ((int)(Math.random()*5+Math.random()*5)+3) * getAttackMultiplier();
       other.applyDamage(damage);
       killIfNecessary();
       return this + " used their "+preferredLanguage+

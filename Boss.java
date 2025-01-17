@@ -56,7 +56,7 @@ public class Boss extends Adventurer{
       setSpecial(getSpecial()-8);
       other.applyDamage(8);
       killIfNecessary();
-      return this + " used their laser barrage dealing " + damage + " points of damage and singeing their enemies";
+      return this + " used power world kill " + " dealing 8 true damage and insta killing the opponent if below that, he then lets out a vile grin.";
 
     }else{
       return "Not enough energy to use the ultimate code. Instead "+attack(other);

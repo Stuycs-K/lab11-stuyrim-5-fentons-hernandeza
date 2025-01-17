@@ -47,8 +47,8 @@ public class Cyborg extends Adventurer{
 
   public String attack(Adventurer other){
     setHP(getHP() + 2);
-    int damage = (int)((Math.random()*3) + 3);
-    other.applyDamage(damage) * getAttackMultiplier();
+    int damage = (int)((Math.random()*3) + 3) * getAttackMultiplier();
+    other.applyDamage(damage);
     killIfNecessary();
     restoreSpecial(2);
     if (other.dead() == true) {
