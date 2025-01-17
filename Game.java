@@ -156,8 +156,13 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
       if (party.size() == 1){
         TextBox(startRow, 38, 38, 1, party.get(0).getName());
-        TextBox(startRow+1, 38, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
-        TextBox(startRow+2, 39, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
+        if (party.get(0).isDead()){
+          TextBox(startRow + 1, 38, 38, 1, "DEAD");
+        }
+        else{
+          TextBox(startRow+1, 38, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
+          TextBox(startRow+2, 39, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
+        }
       }
       if (party.size() == 2){
         int k = 0;
@@ -299,7 +304,6 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
-
       //show cursor
 
       String input = in.nextLine();

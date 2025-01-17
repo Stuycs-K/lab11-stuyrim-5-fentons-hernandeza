@@ -106,7 +106,7 @@ public abstract class Adventurer{
     maxHP = newMax;
   }
 
-public boolean dead() {
+public boolean isDead() {
   return dead;
 }
 
@@ -151,7 +151,7 @@ this.sleepCount = newSleepCount;
   }
 
   public void killIfNecessary() {
-    if (getHP() == 0) {
+    if (getHP() <= 0) {
       setDeathStatus(true);
     }
   }
