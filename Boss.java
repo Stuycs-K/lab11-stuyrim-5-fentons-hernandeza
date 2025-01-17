@@ -41,7 +41,7 @@ public class Boss extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    int damage = (int)((Math.random()*5) + 2);
+    int damage = ((int)((Math.random()*5) + 2)) * getAttackMultiplier();
     other.applyDamage(damage);
     killIfNecessary();
     restoreSpecial(2);
@@ -54,8 +54,7 @@ public class Boss extends Adventurer{
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
-      int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
-      other.applyDamage(damage);
+      other.applyDamage(8);
       killIfNecessary();
       return this + " used their laser barrage dealing " + damage + " points of damage and singeing their enemies";
 
@@ -65,9 +64,9 @@ public class Boss extends Adventurer{
 
   }
 
-  /*Restores 5 special to other*/
   public String support(Adventurer other){
-    return getName() + " says kill them for me "+other+" and buffs his attack substantially ";
+    other.setSleepCount((int) (Math.random() * 4));
+    return getName() + " puts " + other.getName() + " to sleep.";
 
   }
   /*Restores 6 special and 1 hp to self.*/
@@ -75,7 +74,9 @@ public class Boss extends Adventurer{
     return "Boss";
   }
   public String support(){
-    return getName() +" says fine I'll do it myself and significantly boosts their own attack power.";
+    setSleepCount(0);
+    setAttackTick(0);
+    return getName() +" has restored himself by the grace of his own power.";
   }
 
   public String toString() {
