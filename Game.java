@@ -168,15 +168,25 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         int k = 0;
         for (int i = 2; i < 50; i += 39){
           TextBox(startRow, i, 38, 1, party.get(k).getName());
-          TextBox(startRow+1, i, 38, 1, party.get(k).getHP() + "/" + party.get(k).getmaxHP());
-          TextBox(startRow+2, i, 38, 1, party.get(k).getSpecial() + "/" + party.get(k).getSpecialMax());
+          if (party.get(i).isDead()){
+            TextBox(startRow + 1, 38, 38, 1, "DEAD");
+          }
+          else{
+            TextBox(startRow+1, i, 38, 1, party.get(k).getHP() + "/" + party.get(k).getmaxHP());
+            TextBox(startRow+2, i, 38, 1, party.get(k).getSpecial() + "/" + party.get(k).getSpecialMax());
+          }
           k++;
         }
       }
       if (party.size() == 3){
         TextBox(startRow, 2, 38, 1, party.get(0).getName());
-        TextBox(startRow+1, 2, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
-        TextBox(startRow+2, 2, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
+        if (party.get(0).isDead()){
+          TextBox(startRow + 1, 2, 38, 1, "DEAD");
+        }
+        else{
+          TextBox(startRow+1, 2, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
+          TextBox(startRow+2, 2, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
+        }
 
         TextBox(startRow, 27, 38, 1, party.get(1).getName());
         TextBox(startRow+1, 27, 38, 1, party.get(1).getHP() + "/" + party.get(1).getmaxHP());
