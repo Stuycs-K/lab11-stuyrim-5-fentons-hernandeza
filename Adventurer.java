@@ -2,7 +2,7 @@ import java.util.Random;
 //add sleep turn count so tech priest special works and finish tech priest supports.
 public abstract class Adventurer{
   private String name;
-  private int HP,maxHP,attackTicker, attackMultiplier, bleedCount, sleepTurnCount;
+  private int HP,maxHP,attackTicker, attackMultiplier, bleedCount,sleepCount;
   private boolean dead;
 
   //Abstract methods are meant to be implemented in child classes.
@@ -79,7 +79,7 @@ used
 
   //toString method
   public String toString(){
-    return (this.getName() + "\n" + this.getHP() + "/" + this.getmaxHP() + "\n" + this.getSpecial() + "/" + this.getSpecialMax());
+    return (this.getName());
   }
 
   //Get Methods
@@ -116,6 +116,9 @@ public boolean dead() {
   return bleedCount;
   }
 
+public int getSleepCount() {
+return sleepCount;
+}
 
   //Set Methods
 
@@ -136,6 +139,9 @@ public boolean dead() {
     this.attackMultiplier = (1 + (1 / 2) * getAttackTick());
   }
 
+public void setSleepCount(int newSleepCount) {
+this.sleepCount = newSleepCount;
+}
 
   public void setName(String s){
     this.name = s;

@@ -47,12 +47,12 @@ public class Cyborg extends Adventurer{
 
   public String attack(Adventurer other){
     setHP(getHP() + 2);
-    int damage = (int)((Math.random()*3) + 3);
+    int damage = (int)((Math.random()*3) + 3) * getAttackMultiplier();
     other.applyDamage(damage);
     killIfNecessary();
     restoreSpecial(2);
     if (other.dead() == true) {
-      return this + " heard punched " + other + " killing them and saying " + elimQuote;
+      return this + " hard punched " + other + " killing them and saying " + elimQuote;
     }
     return this + " hard punched "+ other + " and dealt "+ damage +
     " points of damage. They then clank their gauntlets together.";
@@ -67,7 +67,7 @@ public class Cyborg extends Adventurer{
    return "";
    }
    else{
-      return "Not enough energy to use the ultimate code. Instead "+attack(other);
+      return "Not enough energy to use the laser barrage. Instead "+attack(other);
     }
 
   }
