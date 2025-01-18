@@ -51,7 +51,7 @@ public class Cyborg extends Adventurer{
     other.applyDamage(damage);
     killIfNecessary();
     restoreSpecial(2);
-    if (other.dead() == true) {
+    if (other.isDead() == true) {
       return this + " hard punched " + other + " killing them and saying " + elimQuote;
     }
     return this + " hard punched "+ other + " and dealt "+ damage +
@@ -75,11 +75,11 @@ public class Cyborg extends Adventurer{
   int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
   other.applyDamage(damage);
   killIfNecessary();
-  if (other.dead() == true) {
+  if (other.isDead() == true) {
   return this + " heard punched " + other + " killing them and saying " + elimQuote;
   }
   return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
-  
+
   }
 
 
