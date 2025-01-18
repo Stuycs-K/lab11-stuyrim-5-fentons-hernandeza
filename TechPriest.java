@@ -53,13 +53,13 @@ public String attack(Adventurer other){
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
-      int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
-      other.applyDamage(damage);
+      int sleepturns = (int) (Math.random() * 3) + 2;
+      setSleepCount(sleepturns);
 
-      return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies"; //SAME FOR THIS
+      return this + " delievered  a hack, putting " + other + "to sleep for " + sleepturns ; //SAME FOR THIS
 
     }else{
-      return "Not enough energy to use the ultimate code. Instead "+attack(other);
+      return "Not enough mana to hack the opponent. Instead "+attack(other);
     }
 
   }
@@ -75,8 +75,8 @@ public String attack(Adventurer other){
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
-    setHP(getHP() + 2);
-    setAttackTick(getAttackTick() + 1);
-    return getName() +" says fine I'll do it myself and significantly boosts their own attack power.";
+  int newHP = getHP() + (int) (Math.random() * 5 + 3);
+    setHP(newHP);
+    return this + "heals themselves to " + newHP;
   }
 }
