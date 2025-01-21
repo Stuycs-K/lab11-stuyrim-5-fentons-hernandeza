@@ -15,9 +15,9 @@ Make a clear list of features that work/dont work
 :x: This required feature does not work.
 
 :beetle: This is a bug that affects the game.
-| Support  | Controls |
+| Support  | Example Controls |
 | ------------- | ------------- |
-|Support with just a number now supports the enemy (some supports are debuffs though only for the boss which makes this very slightly redundant, but maybe you want to heal the enemy), a support command with the word party in it now supports your allies and a support command with no number now supports the charachter who called it|
+|Support with just a number now supports the enemy (some supports are debuffs though only for the boss which makes this very slightly redundant, but maybe you want to heal the enemy), a support command with the word party in it now supports your allies and a support command with no number now supports the charachter who called it| | support Enemy (s 0), support ally (s party 0), support self (s)|
 
 ## Adventurer Subclasses
 
