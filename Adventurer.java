@@ -131,7 +131,7 @@ return sleepCount;
 
   public static String triggerBleed(Adventurer other) {
   other.applyDamage(other.getBleedCount());
-  return other + " takes " + other.getBleedCount() + " points of damage.";
+  return other + " takes " + other.getBleedCount() + " points of persistant bleed damage.";
   }
 
  public void setBleedCount(int newBleedCount) {
