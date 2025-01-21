@@ -54,6 +54,14 @@ public class Game{
       }
     }
   }
+  public static void resetMessage(){
+    for (int x = 2; x < 80; x++){
+      for (int y = 6; y < 15; y++){
+        Text.go(y,x);
+        System.out.print(" ");
+      }
+    }
+  }
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
@@ -461,35 +469,36 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         
         input = userInput(in);
         //Process user input for the last Adventurer:
+        resetMessage();
         if(startsWithIgnoreCase(input, "attack") || startsWithIgnoreCase(input, "a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          TextBox(15, 2, 78, 2, party.get(whichPlayer).attack(enemies.get(grabNumber(input))));
+          TextBox(7, 3, 35, 2, party.get(whichPlayer).attack(enemies.get(grabNumber(input))));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(startsWithIgnoreCase(input, "special") || startsWithIgnoreCase(input, "sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input)));
+          TextBox(7, 3, 35, 2, party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input))));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if((startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")) && (input.contains("party") || input.contains("Party"))){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          party.get(whichPlayer).support(party.get(grabNumber(input)));
+          TextBox(7, 3, 35, 2, party.get(whichPlayer).support(party.get(grabNumber(input))));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if((startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")) && grabNumber(input) > 0){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          party.get(whichPlayer).support(enemies.get(grabNumber(input)));
+          TextBox(7, 3, 35, 2, party.get(whichPlayer).support(enemies.get(grabNumber(input))));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          party.get(whichPlayer).support();
+          TextBox(7, 3, 35, 2, party.get(whichPlayer).support());
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         
@@ -523,19 +532,20 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         }
         //done with one party member
       }else{
+        String message = "";
         //not the party turn!
        Adventurer.triggerBleed(enemies.get(whichOpponent));
        if (!(enemies.get(whichOpponent).getSleepCount() > 0)) {
 
         int randNumber = (int) Math.random() * 3;
         if(randNumber == 0){
-          enemies.get(whichOpponent).attack(party.get((int) (Math.random() * party.size())));
+          message = enemies.get(whichOpponent).attack(party.get((int) (Math.random() * party.size())));
         }
         else if(randNumber == 1){
-          enemies.get(whichOpponent).specialAttack(party.get((int) (Math.random() * party.size())));
+          message = enemies.get(whichOpponent).specialAttack(party.get((int) (Math.random() * party.size())));
         }
         else{
-          enemies.get(whichOpponent).support(enemies.get((int) (Math.random() * enemies.size())));
+          message = enemies.get(whichOpponent).support(enemies.get((int) (Math.random() * enemies.size())));
         }
         }
         if (enemies.get(whichOpponent).getSleepCount() > 0) {
@@ -549,6 +559,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           TextBox(23, 2, 78, 2, prompt);
           input = userInput(in);
         }
+        TextBox(7, 43, 34, 2, message);
         whichOpponent++;
 
         for (int i = 0; i < party.size(); i++){
