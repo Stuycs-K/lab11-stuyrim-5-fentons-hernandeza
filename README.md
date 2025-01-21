@@ -12,8 +12,10 @@
 
 :beetle: This is a bug that affects the game.
 
+*Note: The Intended Features are Highlighted in the Documentation*
 
-## Features
+
+## Extra Features
 
 :ballot_box_with_check: Sleep status condition, managed by editing sleep count and checking if the adventurer can move in Game.java.
 
