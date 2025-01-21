@@ -481,7 +481,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           TextBox(24, 2, 78, 2, "input another player to attack");
           input = userInput(in);
           TextBox(7, 3, 35, 2, party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input))));
-          TextBox(24, 2, 78, 2, "input another player to attack");
+          TextBox(25, 2, 78, 2, "input another player to attack");
           input = userInput(in);
           TextBox(7, 3, 35, 2, party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input))));
           party.get(whichPlayer).setSpecial(party.get(whichPlayer).getSpecial() - 8);
@@ -555,15 +555,21 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
        Adventurer.triggerBleed(enemies.get(whichOpponent));
        if (!(enemies.get(whichOpponent).getSleepCount() > 0)) {
 
-        int randNumber = (int) Math.random() * 3;
+        int randNumber = (int) Math.random() * 4;
         if(randNumber == 0){
           message = enemies.get(whichOpponent).attack(party.get((int) (Math.random() * party.size())));
         }
         else if(randNumber == 1){
           message = enemies.get(whichOpponent).specialAttack(party.get((int) (Math.random() * party.size())));
         }
-        else{
+        else if(randNumber == 2){
+          message = enemies.get(whichOpponent).support();
+        }
+        else if (randNumber == 3){
           message = enemies.get(whichOpponent).support(enemies.get((int) (Math.random() * enemies.size())));
+        }
+        else {
+                  message = enemies.get(whichOpponent).support(party.get((int) (Math.random() * party.size())));
         }
         
           if (enemies.get(whichOpponent).getSleepCount() > 0) {

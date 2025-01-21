@@ -76,6 +76,7 @@ int damage = (int) (((Math.random() * 5) + 5) * getAttackMultiplier());
   public String support(){
     setSleepCount(0);
     setAttackTick(0);
+    setBleedCount(0);
     return getName() +" has restored himself by the grace of his own power.";
   }
 
