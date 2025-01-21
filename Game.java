@@ -417,10 +417,12 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
       //display event based on last turn's input
       if(partyTurn){
-        String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-        TextBox(23, 2, 78, 2, preprompt);
+      Adventurer.triggerBleed(party.get(whichPlayer));
+      if (!(party.get(whichPlayer).getSleepCount() > 0)) {
+        String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support party member/support self/support enemy/quit";
+        TextBox(22, 2, 78, 2, preprompt);
         TextBox(24, 2, 78, 2, "Input: ");
-
+        
         input = userInput(in);
         //Process user input for the last Adventurer:
         if(startsWithIgnoreCase(input, "attack") || startsWithIgnoreCase(input, "a")){
@@ -433,20 +435,38 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")){
+        else if((startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")) && (input.contains("party") || input.contains("Party"))){
+          //"support 0" or "su 0" or "su 2" etc.
+          //assume the value that follows su  is an integer.
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          party.get(whichPlayer).support(party.get(grabNumber(input)));
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        }
+        else if((startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")) && grabNumber(input) > 0){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           party.get(whichPlayer).support(enemies.get(grabNumber(input)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-
+        else if(startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")){
+          //"support 0" or "su 0" or "su 2" etc.
+          //assume the value that follows su  is an integer.
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          party.get(whichPlayer).support();
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        }
+        
+}
         //You should decide when you want to re-ask for user input
         //If no errors:
         //drawScreen(enemies, party);
-
+        if (party.get(whichPlayer).getSleepCount() > 0) {
+        party.get(whichPlayer).setSleepCount(party.get(whichPlayer).getSleepCount() - 1);
+        }
+        
+        
         whichPlayer++;
-
 
 
         if(!(whichPlayer < party.size())){
@@ -468,6 +488,8 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         //done with one party member
       }else{
         //not the party turn!
+       Adventurer.triggerBleed(enemies.get(whichOpponent));
+       if (!(enemies.get(whichOpponent).getSleepCount() > 0)) {
 
         int randNumber = (int) Math.random() * 3;
         if(randNumber == 0){
@@ -479,6 +501,10 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         else{
           enemies.get(whichOpponent).support(enemies.get((int) (Math.random() * enemies.size())));
         }
+        }
+        if (enemies.get(whichOpponent).getSleepCount() > 0) {
+        enemies.get(whichOpponent).setSleepCount(enemies.get(whichOpponent).getSleepCount() - 1);
+        } 
 
 
         //Decide where to draw the following prompt:
