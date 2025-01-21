@@ -19,9 +19,45 @@ public class Game{
  public static void colorRGB(int r, int g, int b) {
       System.out.print("\u001b[38;2;"+r+";"+g+";"+b+"m");
     }
+  public static void resetBackground(){
+    colorRGB(135,206,235);
+    for (int x = 2; x < 80; x++){
+      for (int y = 22; y < 26; y++){
+        Text.go(y,x);
+        System.out.print(" ");
+      }
+    }
+    for (int x = 2; x < 80; x++){
+      for (int y = 1; y < 6; y+= 4){
+        Text.go(y,x);
+        System.out.print("━");
+      }
+    }
+
+    for (int x = 2; x < 80; x++){
+      for (int y = 30; y > 24; y-= 4){
+        Text.go(y,x);
+        System.out.print("━");
+      }
+    }
+    for (int x = 2; x < 80; x++){
+      for (int y = 29; y > 26; y--){
+        Text.go(y,x);
+        System.out.print(" ");
+      }
+    }
+
+    for (int x = 2; x < 80; x++){
+      for (int y = 2; y < 5; y++){
+        Text.go(y,x);
+        System.out.print(" ");
+      }
+    }
+  }
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
+      colorRGB(135,206,235);
       int height = 30;
       int length = 80;
       for (int y = 0; y < height; y++) {
@@ -30,7 +66,7 @@ public class Game{
        if (x == 0 || x == length - 1) {
          System.out.print("┃");
        }
-       else if (y == 0 || y == height - 1 || y == 4 || y == 25 || y == 21) {
+       else if (y == 0 || y == height - 1 || y == 4 || y == 25 || y == 20) {
         System.out.print("━");
        }
         else {
@@ -52,9 +88,9 @@ public class Game{
     System.out.print("┣");
     Text.go(5,80);
     System.out.print("┫");
-    Text.go(22,0);
+    Text.go(21,0);
     System.out.print("┣");
-    Text.go(22,80);
+    Text.go(21,80);
     System.out.print("┫");
     Text.go(26,0);
     System.out.print("┣");
@@ -251,10 +287,9 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
   public static void drawScreen(ArrayList<Adventurer> enemies, ArrayList<Adventurer> party){
-    colorRGB(135,206,235);
-    drawBackground();
-
     //draw enemy party
+    resetBackground();
+
     colorRGB(135,206,235);
     if (enemies.size() == 2){
       Text.go(0, 40);
@@ -405,6 +440,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     //Draw the window border
 
     //You can add parameters to draw screen!
+    drawBackground();
     drawScreen(enemies, party);//initial state.
     Text.showCursor();
     //Text.go(10,1);
@@ -427,7 +463,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         //Process user input for the last Adventurer:
         if(startsWithIgnoreCase(input, "attack") || startsWithIgnoreCase(input, "a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          party.get(whichPlayer).attack(enemies.get(grabNumber(input)));
+          TextBox(15, 2, 78, 2, party.get(whichPlayer).attack(enemies.get(grabNumber(input))));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(startsWithIgnoreCase(input, "special") || startsWithIgnoreCase(input, "sp")){
