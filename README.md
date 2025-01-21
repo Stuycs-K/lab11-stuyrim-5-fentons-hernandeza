@@ -15,29 +15,28 @@ Make a clear list of features that work/dont work
 :x: This required feature does not work.
 
 :beetle: This is a bug that affects the game.
+|elim quote is just a legacy feature|
 | Support  | Example Controls |
 | ------------- | ------------- |
-|Support with just a number now supports the enemy (some supports are debuffs though only for the boss which makes this very slightly redundant, but maybe you want to heal the enemy), a support command with the word party in it now supports your allies and a support command with no number now supports the charachter who called it| | support Enemy (s 0), support ally (s party 0), support self (s)|
+|Support with just a number now supports the enemy (some supports are debuffs though only for the boss which makes this very slightly redundant, but maybe you want to heal the enemy), a support command with the word party in it now supports your allies and a support command with no number now supports the charachter who called it| | support Enemy (s 0), support ally (s party 0), support self (s)|:white_check_mark
 
 ## Adventurer Subclasses
 
 | Characteristic  | CodeWarrior |
 | ------------- | ------------- |
 |Only one major change|
-| Base Health  | 10 - 14  |
+| Base Health  | 10 - 14  | :white_check_mark
 
 
 
 | Characteristic  | Cyborg |
 | ------------- | ------------- |
-| Base Health  | 8 - 12  |
-| Passive Healing | 2 HP |
-| Base Special  | Laser Charge  |
-| Primary Attack  | Bionically enhanced punch: 3 - 5 damage  |
-| Support  | Buffs teams damage by x1.5  |
-| Special Attack  | 9 - 10 damage distribited amongst enemies of choice  |
-
-
+| Base Health  | 8 - 12  | :white_check_mark
+| Passive Healing | 2 HP | :white_check_mark
+| Base Special  | Laser Charge  | :white_check_mark
+| Primary Attack  | Bionically enhanced punch: 3 - 5 damage  | :white_check_mark
+| Support  | Buffs teams damage by x1.5  | :white_check_mark
+| Special Attack  | 9 - 10 damage distribited amongst enemies of choice  | :ballot_box_with_check 
 | Characteristic  | Tech Priest |
 | ------------- | ------------- |
 | Base Health  | 8 - 12  |
