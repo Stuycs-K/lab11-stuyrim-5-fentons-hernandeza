@@ -58,6 +58,9 @@ public abstract class Adventurer{
     this.HP -= amount;
   }
 
+  public boolean isDead(){
+    return dead;
+  }
   //You did it wrong if this happens.
   public Adventurer(){
     this("Lester-the-noArg-constructor-string");
