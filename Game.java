@@ -566,13 +566,13 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           message = enemies.get(whichOpponent).support(enemies.get((int) (Math.random() * enemies.size())));
         }
         
-                if (enemies.get(whichOpponent).getSleepCount() > 0) {
-        enemies.get(whichOpponent).setSleepCount(enemies.get(whichOpponent).getSleepCount() - 1);
-        } 
-}
-else {
-message = enemies.get(whichOpponent) + " is asleep and thus unable to move.";
-} 
+          if (enemies.get(whichOpponent).getSleepCount() > 0) {
+            enemies.get(whichOpponent).setSleepCount(enemies.get(whichOpponent).getSleepCount() - 1);
+          } 
+        }
+       else {
+         message = enemies.get(whichOpponent) + " is asleep and thus unable to move.";
+       } 
 
         //Decide where to draw the following prompt:
         if (whichOpponent != 0){

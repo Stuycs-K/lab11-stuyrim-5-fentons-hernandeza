@@ -53,8 +53,7 @@ return this + " hacks " + other.getName() + " and causes them to bleed, reducing
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
       int sleepturns = (int) (Math.random() * 3) + 2;
-      setSleepCount(sleepturns);
-
+      other.setSleepCount(sleepturns);
       return this + " delievered  a hack, putting " + other + " to sleep for " + sleepturns ; //SAME FOR THIS
 
     }else{
