@@ -43,7 +43,7 @@ public class Boss extends Adventurer{
   public String attack(Adventurer other){
     int damage = ((int)((Math.random()*5) + 2)) * getAttackMultiplier();
     other.applyDamage(damage);
-    killIfNecessary();
+    other.killIfNecessary();
     restoreSpecial(2);
     return this + " fired a laser beam at "+ other + " and dealt "+ damage +
     " points of damage. They then let out a horrifying grin.";
@@ -55,7 +55,7 @@ public class Boss extends Adventurer{
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
       other.applyDamage(8);
-      killIfNecessary();
+      other.killIfNecessary();
       return this + " used power world kill " + " dealing 8 true damage and insta killing the opponent if below that, he then lets out a vile grin.";
 
     }else{

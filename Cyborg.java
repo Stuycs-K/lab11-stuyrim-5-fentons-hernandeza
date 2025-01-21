@@ -49,7 +49,7 @@ public class Cyborg extends Adventurer{
     setHP(getHP() + 2);
     int damage = (int)((Math.random()*3) + 3) * getAttackMultiplier();
     other.applyDamage(damage);
-    killIfNecessary();
+    other.killIfNecessary();
     restoreSpecial(2);
     if (other.isDead() == true) {
       return this + " hard punched " + other + " killing them and saying " + elimQuote;
@@ -74,7 +74,7 @@ public class Cyborg extends Adventurer{
   public String specialAttackHelper(Adventurer other) {
   int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
   other.applyDamage(damage);
-  killIfNecessary();
+  other.killIfNecessary();
   if (other.isDead() == true) {
   return this + " heard punched " + other + " killing them and saying " + elimQuote;
   }

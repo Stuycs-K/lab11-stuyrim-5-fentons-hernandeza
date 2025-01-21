@@ -139,13 +139,13 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
       if (party.size() == 1){
-        TextBox(startRow, 38, 38, 1, party.get(0).toString());
+        TextBox(startRow, 33, 38, 1, party.get(0).toString());
         if (party.get(0).isDead()){
-          TextBox(startRow + 1, 39, 38, 1, "DEAD");
+          TextBox(startRow + 1, 38, 38, 1, "DEAD");
         }
         else{
           TextBox(startRow+1, 38, 38, 1, party.get(0).getHP() + "/" + party.get(0).getmaxHP());
-          TextBox(startRow+2, 39, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
+          TextBox(startRow+2, 38, 38, 1, party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
         }
       }
       if (party.size() == 2){
@@ -445,7 +445,9 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         //You should decide when you want to re-ask for user input
         //If no errors:
         //drawScreen(enemies, party);
+
         whichPlayer++;
+
 
 
         if(!(whichPlayer < party.size())){
@@ -457,6 +459,12 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           drawScreen(enemies, party);
           TextBox(23, 2, 78, 2, prompt);
           input = userInput(in);
+
+          for (int i = 0; i < enemies.size(); i++){
+            if (enemies.get(i).isDead()){
+              enemies.remove(i);
+            }
+        }
         }
         //done with one party member
       }else{
@@ -464,13 +472,13 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
         int randNumber = (int) Math.random() * 3;
         if(randNumber == 0){
-          enemies.get(whichOpponent).attack(party.get((int) Math.random() * party.size()));
+          enemies.get(whichOpponent).attack(party.get((int) (Math.random() * party.size())));
         }
         else if(randNumber == 1){
-          enemies.get(whichOpponent).specialAttack(party.get((int) Math.random() * party.size()));
+          enemies.get(whichOpponent).specialAttack(party.get((int) (Math.random() * party.size())));
         }
         else{
-          enemies.get(whichOpponent).support(party.get((int) Math.random() * party.size()));
+          enemies.get(whichOpponent).support(party.get((int) (Math.random() * party.size())));
         }
 
 
@@ -482,6 +490,11 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         }
         whichOpponent++;
 
+        for (int i = 0; i < party.size(); i++){
+          if (party.get(i).isDead()){
+            party.remove(i);
+          }
+        }
       }//end of one enemy.
 
       //modify this if statement.

@@ -49,7 +49,7 @@ public class CodeWarrior extends Adventurer{
   public String attack(Adventurer other){
     int damage = ((int)(Math.random()*6)+2) * getAttackMultiplier();
     other.applyDamage(damage);
-    killIfNecessary();
+    other.killIfNecessary();
     restoreSpecial(2);
     return this + " attacked "+ other + " and dealt "+ damage +
     " points of damage. They then take a sip of their coffee.";
@@ -63,7 +63,7 @@ public class CodeWarrior extends Adventurer{
       setSpecial(getSpecial()-8);
       int damage = ((int)(Math.random()*5+Math.random()*5)+3) * getAttackMultiplier();
       other.applyDamage(damage);
-      killIfNecessary();
+      other.killIfNecessary();
       return this + " used their "+preferredLanguage+
       " skills to hack the matrix. "+
       " This glitched out "+other+" dealing "+ damage +" points of damage.";

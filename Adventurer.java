@@ -55,7 +55,12 @@ public abstract class Adventurer{
   */
 
   public void applyDamage(int amount){
+    if (this.HP - amount < 0){
+      this.HP = 0;
+    }
+    else{
     this.HP -= amount;
+    }
   }
 
   public boolean isDead(){
