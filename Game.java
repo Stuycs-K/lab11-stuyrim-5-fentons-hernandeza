@@ -410,9 +410,8 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     //Text.go(10,1);
     //display this prompt at the start of the game.
 
-    while(! (startsWithIgnoreCase(input, "q") || startsWithIgnoreCase(input, "quit"))){
+    while(!(startsWithIgnoreCase(input, "q") || startsWithIgnoreCase(input, "quit") || party.size() < 1 || enemies.size() < 1)){
       //Read user input
-
       //example debug statment
       //TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
@@ -478,7 +477,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           enemies.get(whichOpponent).specialAttack(party.get((int) (Math.random() * party.size())));
         }
         else{
-          enemies.get(whichOpponent).support(party.get((int) (Math.random() * party.size())));
+          enemies.get(whichOpponent).support(enemies.get((int) (Math.random() * enemies.size())));
         }
 
 
@@ -515,6 +514,18 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
 
 
     //After quit reset things:
+    if ((startsWithIgnoreCase(input, "q") || startsWithIgnoreCase(input, "quit"))){
+      TextBox(15, 29, 80, 2, (Text.colorize(" You Gave Up and LOST! ",Text.BOLD,Text.WHITE,Text.RED+Text.BACKGROUND+Text.BRIGHT)));
+    }
+
+    if (party.size() < 1){
+      TextBox(15, 25, 80, 2, (Text.colorize(" Your Team DIED and you LOSE! ",Text.BOLD,Text.BLACK,Text.YELLOW+Text.BACKGROUND+Text.BRIGHT)));
+    }
+
+    if (enemies.size() < 1){
+      TextBox(15, 20, 80, 2, (Text.colorize(" You KILLED All Enemies and you WIN! ",Text.BOLD,Text.WHITE,Text.RED+Text.BACKGROUND+Text.BRIGHT)));
+    }
+
     quit();
   }
 }
