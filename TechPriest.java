@@ -56,7 +56,7 @@ return this + " hacks " + other.getName() + " and causes them to bleed, reducing
       int sleepturns = (int) (Math.random() * 3) + 2;
       setSleepCount(sleepturns);
 
-      return this + " delievered  a hack, putting " + other + "to sleep for " + sleepturns ; //SAME FOR THIS
+      return this + " delievered  a hack, putting " + other + " to sleep for " + sleepturns ; //SAME FOR THIS
 
     }else{
       return "Not enough mana to hack the opponent. Instead "+attack(other);

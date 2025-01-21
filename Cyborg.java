@@ -58,28 +58,17 @@ public class Cyborg extends Adventurer{
     " points of damage. They then clank their gauntlets together.";
   }
 
-  public String specialAttack(Adventurer other){
-    if(getSpecial() >= 8){
-      setSpecial(getSpecial()-8);
-   System.out.println(specialAttackHelper(other));
-   System.out.println(specialAttackHelper(other));
-   System.out.println(specialAttackHelper(other));
-   return "";
-   }
-   else{
-      return "Not enough energy to use the laser barrage. Instead "+attack(other);
-    }
-
-  }
-  public String specialAttackHelper(Adventurer other) {
+  public String specialAttack(Adventurer other) {
   int damage = 3 + (int) (2 * Math.random()) * getAttackMultiplier();
+  if (getSpecial() < 8) {
+  return "";
+  }
   other.applyDamage(damage);
   other.killIfNecessary();
   if (other.isDead() == true) {
-  return this + " heard punched " + other + " killing them and saying " + elimQuote;
+  return this + " hard punched " + other + " killing them and saying " + elimQuote;
   }
   return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
-
   }
 
 
@@ -88,7 +77,7 @@ public class Cyborg extends Adventurer{
 
     setHP(getHP() + 2);
     other.setAttackTick(getAttackTick() + 1);
-    return getName() + " says kill them for me "+other+" and buffs his attack substantially ";
+    return getName() + " says kill them for me "+other+" and buffs their attack substantially ";
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){

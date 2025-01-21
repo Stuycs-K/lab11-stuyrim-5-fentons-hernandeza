@@ -442,7 +442,6 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
     int whichPlayer = 0;
     int whichOpponent = 0;
     int turn = 0;
-    Cyborg defaultCyborgForComparision =  new Cyborg();
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
@@ -475,6 +474,25 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           TextBox(7, 3, 35, 2, party.get(whichPlayer).attack(enemies.get(grabNumber(input))));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
+        else if((startsWithIgnoreCase(input, "special") || startsWithIgnoreCase(input, "sp")) && party.get(whichPlayer).getSpecialName().equals("charge")) {
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          if(party.get(whichPlayer).getSpecial() >= 8){
+          TextBox(7, 3, 35, 2, party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input))));
+          TextBox(24, 2, 78, 2, "input another player to attack");
+          input = userInput(in);
+          TextBox(7, 3, 35, 2, party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input))));
+          TextBox(24, 2, 78, 2, "input another player to attack");
+          input = userInput(in);
+          TextBox(7, 3, 35, 2, party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input))));
+          party.get(whichPlayer).setSpecial(party.get(whichPlayer).getSpecial() - 8);
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          }
+
+          else {
+          TextBox(7, 3, 35, 2, "Not enough energy to use special, will hard punch instead");
+          party.get(whichPlayer).attack(enemies.get(grabNumber(input)));
+          }
+        }
         else if(startsWithIgnoreCase(input, "special") || startsWithIgnoreCase(input, "sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           TextBox(7, 3, 35, 2, party.get(whichPlayer).specialAttack(enemies.get(grabNumber(input))));
@@ -487,7 +505,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           TextBox(7, 3, 35, 2, party.get(whichPlayer).support(party.get(grabNumber(input))));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if((startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")) && grabNumber(input) > 0){
+        else if((startsWithIgnoreCase(input, "support") || startsWithIgnoreCase(input, "su")) && grabNumber(input) > -1){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -547,11 +565,14 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
         else{
           message = enemies.get(whichOpponent).support(enemies.get((int) (Math.random() * enemies.size())));
         }
-        }
-        if (enemies.get(whichOpponent).getSleepCount() > 0) {
+        
+                if (enemies.get(whichOpponent).getSleepCount() > 0) {
         enemies.get(whichOpponent).setSleepCount(enemies.get(whichOpponent).getSleepCount() - 1);
         } 
-
+}
+else {
+message = enemies.get(whichOpponent) + " is asleep and thus unable to move.";
+} 
 
         //Decide where to draw the following prompt:
         if (whichOpponent != 0){
@@ -560,6 +581,7 @@ public static boolean startsWithIgnoreCase(String mainString,String stringToComp
           input = userInput(in);
         }
         TextBox(7, 43, 34, 2, message);
+        
         whichOpponent++;
 
         for (int i = 0; i < party.size(); i++){
