@@ -15,21 +15,21 @@
 
 ## Features
 
-:white_check_mark: Sleep status condition, managed by editing sleep count and checking if the adventurer can move in Game.java.
+:ballot_box_with_check: Sleep status condition, managed by editing sleep count and checking if the adventurer can move in Game.java.
 
-:white_check_mark: Bleed persistant damage, made by triggerBleed in adventurer/bleedCount and utilized via techpriest attacks function.
+:ballot_box_with_check: Bleed persistant damage, made by triggerBleed in adventurer/bleedCount and utilized via techpriest attacks function.
 
-:white_check_mark: Attack tick and attack multiplier, the reason for both existing was to make attack tick being negative an easier thing to manage.
+:ballot_box_with_check: Attack tick and attack multiplier, the reason for both existing was to make attack tick being negative an easier thing to manage.
 
-:white_check_mark: Distributable damage from a single turn through the cyborg special attack.
+:ballot_box_with_check: Distributable damage from a single turn through the cyborg special attack.
 
-:white_check_mark: Clearing of all status conditions in the lich support.
+:ballot_box_with_check: Clearing of all status conditions in the lich support.
 
-:white_check_mark: Power word kill being unique to TechnoLich and dealing true damage, which is essentially just removing attack multiplier.
+:ballot_box_with_check: Power word kill being unique to TechnoLich and dealing true damage, which is essentially just removing attack multiplier.
 
-:white_check_mark: Cool border, made by an edited draw border function.
+:ballot_box_with_check: Cool border, made by an edited draw border function.
 
-:white_check_mark: Random name generator made via dictionary of names.
+:ballot_box_with_check: Random name generator made via dictionary of names.
 
 | Support  | Example Controls |
 | ------------- | ------------- |
