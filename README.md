@@ -1,10 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/KprAwj1n)
 # APCS - Stuyrim
 
-## Features
-
-Make a clear list of features that work/dont work
-
+## Key
 :white_check_mark: This feature works.
 
 :question: This feature works partially.
@@ -14,6 +11,18 @@ Make a clear list of features that work/dont work
 :x: This required feature does not work.
 
 :beetle: This is a bug that affects the game.
+
+
+## Features
+
+:white_check_mark: Sleep status condition, managed by editing sleep count and checking if the adventurer can move in Game.java
+:white_check_mark: Bleed persistant damage, made by triggerBleed in adventurer/bleedCount and utilized via techpriest attacks function
+:white_check_mark: Attack tick and attack multiplier, the reason for both existing was to make attack tick being negative an easier thing to manage
+:white_check_mark: Distributable damage from a single turn through the cyborg special attack
+:white_check_mark: Clearing of all status conditions in the lich support
+:white_check_mark: Power word kill being unique to TechnoLich and dealing true damage, which is essentially just removing attack multiplier
+:white_check_mark: Cool border, made by an edited draw border function
+:white_check_mark: Random name generator made via dictionary of names
 
 | Support  | Example Controls |
 | ------------- | ------------- |
@@ -54,14 +63,3 @@ Make a clear list of features that work/dont work
 | Debuff Action  | Sleep: 1 - 3 turns   ☑️ (sleep is a new feature) | 
 | Support Self  | Clears status effects  ✅| 
 | Special Attack  | Insta-kill character under 8 HP, 6 Points req  ✅|
-
-List Of Features 
-1. Sleep status condition, managed by editing sleep count and checking if the adventurer can move in Game.java
-2. Bleed persistant damage, made by triggerBleed in adventurer/bleedCount and utilized via techpriest attacks function
-3. Attack tick and attack multiplier, the reason for both existing was to make attack tick being negative an easier thing to manage
-4. Distributable damage from a single turn through the cyborg special attack
-5. Clearing of all status conditions in the lich support
-6. Power word kill being unique to TechnoLich and dealing true damage, which is essentially just removing attack multiplier
-7. Cool border, made by an edited draw border function
-8. Random name generator made via dictionary of names
-   
