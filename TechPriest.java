@@ -69,13 +69,13 @@ return this + " hacks " + other.getName() + " and causes them to bleed, reducing
 
 
   public String support(Adventurer other){
-    setHP(getHP() + 2);
-    other.setAttackTick(getAttackTick() + 1);
-    return getName() + " says kill them for me "+other+" and buffs his attack substantially ";
+  int newHP = getHP() + (int) (Math.random() * 5) + 3;
+    other.setHP(newHP);
+    return this + " heals " + other + " to " + newHP + ".";
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
-  int newHP = getHP() + (int) (Math.random() * 5 + 3);
+  int newHP = getHP() + (int) (Math.random() * 5) + 4;
     setHP(newHP);
     return this + "heals themselves to " + newHP;
   }
