@@ -41,7 +41,7 @@ public class Boss extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    int damage = ((int)((Math.random()*5) + 2)) * getAttackMultiplier();
+int damage = (int) (((Math.random() * 5) + 5) * getAttackMultiplier());
     other.applyDamage(damage);
     other.killIfNecessary();
     restoreSpecial(2);

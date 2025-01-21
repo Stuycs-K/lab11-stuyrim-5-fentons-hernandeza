@@ -145,7 +145,7 @@ return sleepCount;
 
   public void setAttackTick(int newAttackTicker) {
     this.attackTicker = newAttackTicker;
-    this.attackMultiplier = 1 + ((1 / 2) * getAttackTick());
+    this.attackMultiplier = 1 + (.5 * getAttackTick());
   }
 
 public void setSleepCount(int newSleepCount) {

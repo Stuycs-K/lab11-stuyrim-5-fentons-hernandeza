@@ -43,7 +43,6 @@ public String attack(Adventurer other){
 //set attack ticker to -1 and then reset attack ticker at the time
     other.setBleedCount(other.getBleedCount() + 1);
     other.setAttackTick(other.getAttackTick() - 1);
-    //other.setAttackMultiplier();
     restoreSpecial(2);
 return this + " hacks " + other.getName() + " and causes them to bleed, reducing their attack power and making them take persistant damage.";
   }
@@ -69,7 +68,7 @@ return this + " hacks " + other.getName() + " and causes them to bleed, reducing
 
 
   public String support(Adventurer other){
-  int newHP = getHP() + (int) (Math.random() * 5) + 3;
+  int newHP = other.getHP() + (int) (Math.random() * 5) + 3;
     other.setHP(newHP);
     return this + " heals " + other + " to " + newHP + ".";
   }

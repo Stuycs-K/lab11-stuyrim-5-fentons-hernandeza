@@ -52,21 +52,21 @@ int damage = (int) (((Math.random() * 3) + 3) * getAttackMultiplier());
     other.killIfNecessary();
     restoreSpecial(2);
     if (other.isDead() == true) {
-      return this + " hard punched " + other + " killing them and saying " + elimQuote;
+      return this + " hard punched " + other + " killing them and saying.";
     }
     return this + " hard punched "+ other + " and dealt "+ damage +
     " points of damage. They then clank their gauntlets together.";
   }
 
   public String specialAttack(Adventurer other) {
-int damage = (int) (((Math.random() * 2) + 3) * getAttackMultiplier());
+int damage = (int) (((Math.random() * 3) + 2) * getAttackMultiplier());
   if (getSpecial() < 8) {
   return "";
   }
   other.applyDamage(damage);
   other.killIfNecessary();
   if (other.isDead() == true) {
-  return this + " hard punched " + other + " killing them and saying " + elimQuote;
+  return this + " hard punched " + other + " killing then";
   }
   return this + " used their laser barrage dealing " + damage + " points of damage and singing their enemies";
   }
