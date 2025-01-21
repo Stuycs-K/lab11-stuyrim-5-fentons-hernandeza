@@ -16,7 +16,7 @@ public class Boss extends Adventurer{
   }
 
   public Boss(String name){
-    this(name,20 + (int) (Math.random() * 9));
+    this(name,40 + (int) (Math.random() * 9));
   }
 
   public Boss(){
