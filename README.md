@@ -18,40 +18,40 @@ Make a clear list of features that work/dont work
 
 | Support  | Example Controls |
 | ------------- | ------------- |
-|Support with just a number now supports the enemy (some supports are debuffs though only for the boss which makes this very slightly redundant, but maybe you want to heal the enemy), a support command with the word party in it now supports your allies and a support command with no number now supports the charachter who called it| | support Enemy (s 0), support ally (s party 0), support self (s) :white_check_mark  |
+|Support with just a number now supports the enemy (some supports are debuffs though only for the boss which makes this very slightly redundant, but maybe you want to heal the enemy), a support command with the word party in it now supports your allies and a support command with no number now supports the charachter who called it| | support Enemy (s 0), support ally (s party 0), support self (s) ✅  |
 ## Adventurer Subclasses
 
 | Characteristic  | CodeWarrior |
 | ------------- | ------------- |
 |Only one major change|
-| Base Health  | 10 - 14   :white_check_mark|
+| Base Health  | 10 - 14   ✅ |
 
 
 
 | Characteristic  | Cyborg |
 | ------------- | ------------- |
-| Base Health  | 8 - 12   :white_check_mark| 
-| Passive Healing | 2 HP | :white_check_mark
-| Base Special  | Laser Charge :white_check_mark | 
-| Primary Attack  | Bionically enhanced punch: 3 - 5 damage :white_check_mark | 
-| Support  | Buffs teams damage by x1.5  :white_check_mark| 
-| Special Attack  | 9 - 10 damage distribited amongst enemies of choice  :ballot_box_with_check :beetle (only prints message on the last one, shows damage after the last one procs and the last prompt overwrites the border a little bit though it quickly gets reset, but it works| | 
+| Base Health  | 8 - 12   ✅ | 
+| Passive Healing | 2 HP ✅ | 
+| Base Special  | Laser Charge ✅  | 
+| Primary Attack  | Bionically enhanced punch: 3 - 5 damage ✅ | 
+| Support  | Buffs teams damage by x1.5  ✅ | 
+| Special Attack  | 9 - 10 damage distribited amongst enemies of choice  ☑️ 🪲 (only prints message on the last one, shows damage after the last one procs and the last prompt overwrites the border a little bit though it quickly gets reset, but it works| | 
 
 | Characteristic  | Tech Priest |
 | ------------- | ------------- |
-| Base Health  | 8 - 12  :white_check_mark|    
-| Base Special  | Mech Mana  :white_check_mark|  
-| Primary Attack  | Debuff enemies with x2/3 damage for a turn, deaks 1 persistant damage for rest of game    :ballot_box_with_check |
-| Support Self  | Heals 4 - 8  :white_check_mark| 
-| Special Attack  | Makes one enemy sleep for 2 - 4 turns  :ballot_box_with_check |
-| Support Team  | Heals 3 - 7  :white_check_mark|
+| Base Health  | 8 - 12  ✅|    
+| Base Special  | Mech Mana  ✅|  
+| Primary Attack  | Debuff enemies with x2/3 damage for a turn, deaks 1 persistant damage for rest of game    ☑️ |
+| Support Self  | Heals 4 - 8  ✅| 
+| Special Attack  | Makes one enemy sleep for 2 - 4 turns  ✅ |
+| Support Team  | Heals 3 - 7  ✅|
 
 | Characteristic  | Techno Lich (Boss) |
 | ------------- | ------------- |
-| Base Health  | 40 - 48  :white_check_mark| 
-| Base Special  | Necromancy Points   :white_check_mark|
-| Primary Attack  | Laser Burst: 4 - 6 damage, +2 Necromancy Points  :white_check_mark| 
-| Special bar passive | If an enemy dies, necromancy points are instantly filled :white_check_mark| 
-| Debuff Action  | Sleep: 1 - 3 turns  :ballot_box_with_check | 
-| Support Self  | Clears status effects  | 
-| Special Attack  | Insta-kill character under 8 HP, 6 Points req |
+| Base Health  | 40 - 48  ✅| 
+| Base Special  | Necromancy Points  ✅|
+| Primary Attack  | Laser Burst: 4 - 6 damage, +2 Necromancy Points  ✅| 
+| Special bar passive | If an enemy dies, necromancy points are instantly filled ✅| 
+| Debuff Action  | Sleep: 1 - 3 turns   ☑️ (sleep is a new feature) | 
+| Support Self  | Clears status effects  ✅| 
+| Special Attack  | Insta-kill character under 8 HP, 6 Points req  ✅|
